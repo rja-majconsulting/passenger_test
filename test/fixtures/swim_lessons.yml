@@ -1,0 +1,12 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  code: H5.11
+  place_id: 1
+  level_id: 1
+  coach_id: 1
+  day: 0
+  startTime: 2015-07-05 11:04:49
+  endTime: 2016-07-05 11:34:49
+  maxSubscriptions: 10

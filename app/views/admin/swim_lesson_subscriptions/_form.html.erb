@@ -1,0 +1,40 @@
+<%= form_for([:admin, @swim_lesson_subscription], :html => {:class => "form-horizontal"})  do |f| %>
+    <% if @swim_lesson_subscription.errors.any? %>
+        <div class="alert alert-danger" role="alert">
+          <h3><%= t('validation_error_message_1') + pluralize(@swim_lesson_subscription.errors.count, t('validation_error_message_2')) + t('validation_error_message_3') %></h3>
+
+          <ul>
+            <% @swim_lesson_subscription.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+
+    <%= render 'admin/subscription/form', form: f, subscription: @swim_lesson_subscription %>
+
+    <div class="field form-group">
+      <%= f.label t('swim_lesson_subscription_form_lesson'), :class => "col-sm-3 control-label" %>
+      <div class="col-sm-6">
+        <%= f.select :swim_lesson_id, options_for_select(@swim_lessons.map{|l|[l.code, l.id]}, @swim_lesson_subscription.swim_lesson_id), {}, {:class => "form-control select", 'data-style' => "btn-primary"} %>
+      </div>
+    </div>
+
+    <% if((controller.action_name=="edit" or controller.action_name=="update") and (@swim_lesson_subscription.swim_lesson_id!=nil)) %>
+        <div class="field form-group">
+          <%= f.label t('sport_module_subscription_table_due_date'), :class => "col-sm-3 control-label" %>
+          <div class="col-sm-6">
+            <%= f.date_select :dueDate, :class => "form-control" %>
+          </div>
+        </div>
+    <% end %>
+    <div class="actions form-group" >
+      <%= link_to admin_swim_lesson_subscriptions_path, :class => "btn btn-primary col-sm-offset-3" do %>
+          <i class="glyphicon glyphicon-chevron-left"></i> <%= t('button_back') %>
+      <% end %>
+      <%= button_tag(type: 'submit', class: "btn btn-primary col-sm-offset-4") do %>
+          <%= (controller.action_name=="new" or controller.action_name=="create") ? t('button_add') :  t('button_edit') %> <i class="glyphicon glyphicon-ok"></i>
+      <% end %>
+    </div>
+<% end %>

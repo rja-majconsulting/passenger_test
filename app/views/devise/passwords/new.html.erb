@@ -1,0 +1,21 @@
+<div class="content">
+  <h1><%= t('connexion_forgot_password') %></h1>
+
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, :class=> 'form-horizontal' }) do |f| %>
+    <%= devise_error_messages! %>
+
+    <div class="field form-group">
+      <%= f.label t('connexion_email') , :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-6">
+        <%= f.email_field :email, autofocus: true , :class => 'form-control' %>
+      </div>
+    </div>
+
+    <div class="actions form-group">
+      <%= f.submit t('connexion_send_reset_password_instructions') , :class => 'btn btn-primary col-sm-offset-3' %>
+    </div>
+  <% end %>
+  <div class='col-sm-offset-3'>
+    <%= render "devise/shared/links" %>
+  </div>
+</div>

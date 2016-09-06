@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  code: MyString
+  place_id: 
+  activity_id: 
+  coach_id: 
+  day: MyString
+  startTime: 2016-06-28 11:32:33
+  endTime: 2016-06-28 11:32:33
+  maxSubscriptions: 1
+  meetingPlace: MyString
+
+two:
+  code: MyString
+  place_id: 
+  activity_id: 
+  coach_id: 
+  day: MyString
+  startTime: 2016-06-28 11:32:33
+  endTime: 2016-06-28 11:32:33
+  maxSubscriptions: 1
+  meetingPlace: MyString

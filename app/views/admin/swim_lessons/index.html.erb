@@ -1,0 +1,49 @@
+<div class="content">
+
+  <% if !notice.blank? %>
+      <div class="alert alert-success" role="alert"><%= notice %></div>
+  <% end %>
+
+  <h1><%= t('swim_lesson_index_title') %></h1>
+
+  <table class="table">
+    <%= link_to new_admin_swim_lesson_path, class: 'col-md-offset-11' do %>
+        <span class="glyphicon glyphicon-plus"></span>
+    <% end %>
+    <thead>
+      <tr>
+        <th><%= t('swim_lesson_table_code') %></th>
+        <th><%= t('swim_lesson_table_place') %></th>
+        <th><%= t('swim_lesson_table_level') %></th>
+        <th><%= t('swim_lesson_table_coach') %></th>
+        <th><%= t('swim_lesson_table_subscriptions') %></th>
+        <th><%= t('swim_lesson_table_start_time') %></th>
+        <th><%= t('swim_lesson_table_end_time') %></th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @swim_lessons.each do |swim_lesson| %>
+        <tr>
+          <td><%= swim_lesson.code %></td>
+          <td><%= swim_lesson.place.alias %></td>
+          <td><%= swim_lesson.level.name %></td>
+          <td><%= swim_lesson.coach.lastName %></td>
+          <td><%= swim_lesson.maxSubscriptions %></td>
+          <td><%= l swim_lesson.startTime %></td>
+          <td><%= l swim_lesson.endTime %></td>
+          <td>
+            <%= link_to edit_admin_swim_lesson_path(swim_lesson), class: 'btn btn-primary btn-sm' do %>
+                <span class="glyphicon glyphicon-edit"></span>
+            <% end %>
+            &nbsp;&nbsp;
+            <%= link_to admin_swim_lesson_path(swim_lesson.id), method: :delete, data: { confirm: t('swim_lesson_destroy_confirmation_message') }, class:'btn btn-danger btn-sm' do %>
+                <span class="glyphicon glyphicon-remove"></span>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

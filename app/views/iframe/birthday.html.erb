@@ -1,0 +1,36 @@
+<div class="content overflow-hidden height-hundred-480" style="background-color:#a60d64">
+  <h3><b>Envie de fêter l’anniversaire de votre enfant autrement ?</b></h3>
+  <h3><b>Envie de satisfaire les attentes de tous les invités ?</b></h3><br><br>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        Un forfait tout compris pour seulement <b>139 € !</b> <br><br><br>
+        <b>Encadrement sportif</b> de qualité suivi d’une dégustation <b>gâteau</b> et <b>boissons à volonté</b>, <b>cartons d’invitation</b>, <b>cadeaux</b>, etc. !<br><br>
+
+        <h3><%= link_to "Plus d'infos ? Cliquez ICI", '/Anniversaire.pdf', :target => '_blank' %></h3>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+        <b>Nos  4 formules</b>
+        <ul>
+          <li>> Formule n°1 - En salle de sports</li>
+          <li>> Formule n°2 - En piscine</li>
+          <li>> Formule n°3 - Dans l’école de votre enfant</li>
+          <li>> Formule n°4 - A votre domicile</li>
+        </ul>
+        <br>
+        <ul>
+          <li>
+            <%= link_to public_registration_path, :target => '_parent'  do %>
+                <input type="button" value="<%= t('menu_registration')%>" class="button_inscription"/>
+            <% end %>
+          </li>
+        </ul>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

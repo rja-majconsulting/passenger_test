@@ -1,0 +1,230 @@
+<%= form_for([:public, @subscription], :url => public_registration_confirm_path, :html => {:class => "form-horizontal"})  do |f| %>
+
+    <div class="field form-group">
+      <%= f.label :lastName, t('subscription_form_lastName'), :class => 'col-sm-3 control-label'  %>
+      <div class="col-sm-6">
+        <%= f.text_field :lastName, :class => 'form-control ignore', :placeholder => t('subscription_form_lastName_placeholder'),
+             data: {
+              :validation => "length",
+              "validation-length" => "min2",
+              "validation-error-msg" => t('validation_required_min_length', nb: '2')
+            } %>
+      </div>
+    </div>
+    <div class="field form-group">
+      <%= f.label :firstName, t('subscription_form_firstName'), :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-6">
+        <%= f.text_field :firstName, :class => 'form-control' , :placeholder => t('subscription_form_firstName_placeholder'),
+             data: {
+                 :validation => "length",
+                 "validation-length" => "min2",
+                 "validation-error-msg" => t('validation_required_min_length', nb: '2')
+             } %>
+      </div>
+    </div>
+    <div class="field form-group">
+      <%= f.label :birthDate, t('subscription_form_birthDate'), :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-6 input-group">
+        <%= f.text_field :birthDate, value: @subscription.birthDate.blank? ? @subscription.birthDate_before_type_cast : l(@subscription.birthDate), :class => "form-control birthDate" , :placeholder => t('subscription_form_birthDate_placeholder'),
+             data: {
+                 :validation => "date",
+                 "validation-format" => "dd/mm/yyyy",
+                 "validation-error-msg" => t('validation_format', date_format: 'jj/mm/aaaa')
+             } %>
+        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+      </div>
+    </div>
+    <div class="field form-group">
+      <%= f.label :street, t('subscription_form_street'), :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-6">
+        <%= f.text_field :street, :class => 'form-control', :placeholder => t('subscription_form_street_placeholder'),
+             data: {
+                 :validation => "length",
+                 "validation-length" => "min4",
+                 "validation-error-msg" => t('validation_required_min_length', nb: '4')
+             } %>
+      </div>
+    </div>
+    <div class="field form-group">
+      <%= f.label :city, t('subscription_form_city'), :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-6">
+        <%= f.text_field :city, :class => 'form-control', :placeholder => t('subscription_form_city_placeholder'),
+             data: {
+                 :validation => "length",
+                 "validation-length" => "min3",
+                 "validation-error-msg" => t('validation_required_min_length', nb: '3')
+             } %>
+      </div>
+    </div>
+    <div class="field form-group">
+      <%= f.label :postalCode, t('subscription_form_postal_code'), :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-6">
+        <%= f.number_field :postalCode, :class => 'form-control', :placeholder => t('subscription_form_postal_code_placeholder'),
+             data: {
+                 :validation => "length number",
+                 "validation-length" => "4-4",
+                 "validation-error-msg" => t('validation_required_length', nb: '4')
+             } %>
+      </div>
+    </div>
+    <div class="field form-group">
+      <%= f.label :telefonNumber, t('subscription_form_telefon_number'), :class => 'col-sm-3 control-label'%>
+      <div class="col-sm-6">
+        <%= f.number_field :telefonNumber, :class => 'form-control', :placeholder => t('subscription_form_telefon_number_placeholder'),
+             data: {
+                 :validation => "length number",
+                 "validation-length" => "10-10",
+                 "validation-error-msg" => t('validation_required_length', nb: '10')
+             } %>
+      </div>
+    </div>
+    <div class="field form-group">
+      <%= f.label :email, t('subscription_form_email'), :class => 'col-sm-3 control-label'%>
+      <div class="col-sm-6">
+        <%= f.text_field :email, :class => 'form-control', :placeholder => t('subscription_form_email_placeholder'),
+             data: {
+                 :validation => "email",
+                 "validation-error-msg" => t('validation_email')
+             } %>
+      </div>
+    </div>
+
+    <div class="field form-group" id="type">
+      <%= f.label :type, t('subscription_form_type'), :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-6">
+        <%= f.select :type, options_for_select([['Veuillez sélectionner une formule',''], [t('subscription_form_type_swim_lesson'), 'SwimLessonSubscription'], [t('subscription_form_type_sports_training'), 'SportsTrainingSubscription'], [t('subscription_form_type_birthday'),'BirthDaySubscription'], [t('subscription_form_type_adult_swim_lesson'),'AdultSwimLessonSubscription'], [t('subscription_form_type_sport_module'), 'SportModuleSubscription'], [t('subscription_form_type_sports_day'),'SportsDaySubscription']]), {}, {:class => "form-control", :id => 'selectSubscriptionType',
+              data: {
+                  :validation => "required",
+                  "validation-error-msg" => t('validation_required')
+              }
+        }  %>
+      </div>
+    </div>
+
+    <div class="field form-group dynamicForm" id="sports_training_place" hidden="true">
+      <%= f.label t('subscription_form_place'), :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-6">
+        <select class="form-control required" id="selectSportsTrainingPlace" data-validation="required" data-validation-error-msg="<%= t('validation_required') %>">
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group dynamicForm" id="sports_training_choice" hidden="true">
+      <%= f.label :sports_training_id, t('subscription_form_date'), :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-6">
+        <select class="form-control required" id="selectSportsTrainingChoice" name="subscription[sports_training_id]" data-validation="required" data-validation-error-msg="<%= t('validation_required') %>">
+        </select>
+      </div>
+    </div>
+
+    <div class="field form-group dynamicForm" id="sports_training_morning_activity" hidden="true">
+      <%= f.label :activity_morning_id, t('subscription_form_morning_activity'), :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-6">
+        <select class="form-control required" id="selectSportsTrainingMorningActivity" name="subscription[activity_morning_id]" data-validation="required" data-validation-error-msg="<%= t('validation_required') %>">
+        </select>
+      </div>
+    </div>
+
+    <div class="field form-group dynamicForm" id="sports_training_afternoon_activity" hidden="true">
+      <%= f.label :activity_afternoon_id, t('subscription_form_afternoon_activity'), :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-6">
+        <select class="form-control required" id="selectSportsTrainingAfternoonActivity" name="subscription[activity_afternoon_id]" data-validation="required" data-validation-error-msg="<%= t('validation_required') %>">
+        </select>
+      </div>
+    </div>
+
+    <div class="field form-group dynamicForm" id="swim_lesson_place" hidden="true">
+      <%= f.label :place_id, t('subscription_form_place'), :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-6">
+        <select class="form-control required" id="selectSwimLessonPlace" name="subscription[place_id]" data-validation="required" data-validation-error-msg="<%= t('validation_required') %>">
+        </select>
+      </div>
+    </div>
+
+    <div class="field form-group dynamicForm" id="swim_lesson_level" hidden="true">
+      <%= f.label :level_id, t('subscription_form_level'), :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-6">
+        <select class="form-control required" id="selectSwimLessonLevel" name="subscription[level_id]" data-validation="required" data-validation-error-msg="<%= t('validation_required') %>">
+        </select>
+      </div>
+    </div>
+
+    <div class="field form-group dynamicForm" id="swim_lesson_day" hidden="true">
+      <%= f.label :swim_lesson_id, t('subscription_form_schedule'), :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-6">
+        <select class="form-control required" id="selectSwimLessonDay" name="subscription[swim_lesson_id]" data-validation="required" data-validation-error-msg="<%= t('validation_required') %>">
+        </select>
+      </div>
+    </div>
+
+    <div class="field form-group dynamicForm" id="birthday_place" hidden="true">
+      <%= f.label :birthday_place, t('subscription_form_place'), :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-6">
+        <input type="text"  class="form-control ignore" id="inputBirthdayPlace" placeholder="Commune souhaitée" name="subscription[birthday_place]" data-validation="required" data-validation-error-msg="<%= t('validation_required') %>">
+      </div>
+    </div>
+
+    <div class="field form-group dynamicForm" id="birthday_type" hidden="true">
+      <%= f.label :birthday_type, t('subscription_form_birthday_type'), :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-6">
+        <select class="form-control required" id="selectBirthdayType" name="subscription[birthday_type]" data-validation="required" data-validation-error-msg="<%= t('validation_required') %>">
+          <option value selected>Veuillez sélectionner la formule souhaitée</option>
+          <option value="En piscine">En piscine</option>
+          <option value="En salle de sports">En salle de sports</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="field form-group dynamicForm" id="adult_swim_lesson_place" hidden="true">
+      <%= f.label :adult_swim_lesson_place, t('subscription_form_place'), :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-6">
+        <select class="form-control required" id="selectAdultSwimLessonPlace" name="subscription[adult_swim_lesson_place]" data-validation="required" data-validation-error-msg="<%= t('validation_required') %>">
+          <option value selected>Veuillez sélectionner le lieu souhaité</option>
+          <option value="Farciennes">Farciennes</option>
+          <option value="Binche">Binche</option>
+          <option value="Gozée">Gozée</option>
+          <option value="A domicile">A domicile</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="field form-group dynamicForm" id="sport_module_place" hidden="true">
+      <%= f.label t('subscription_form_place'), :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-6">
+        <select class="form-control required" id="selectSportModulePlace" data-validation="required" data-validation-error-msg="<%= t('validation_required') %>">
+        </select>
+      </div>
+    </div>
+
+    <div class="field form-group dynamicForm" id="sport_module_activity" hidden="true">
+      <%= f.label :sport_module_id, t('subscription_form_activity'), :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-6">
+        <select class="form-control required" id="selectSportModuleActivity" name="subscription[sport_module_id]" data-validation="required" data-validation-error-msg="<%= t('validation_required') %>">
+        </select>
+      </div>
+    </div>
+
+    <div class="field form-group dynamicForm" id="sports_day_place" hidden="true">
+      <%= f.label t('subscription_form_place'), :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-6">
+        <select class="form-control required" id="selectSportsDayPlace" data-validation="required" data-validation-error-msg="<%= t('validation_required') %>">
+        </select>
+      </div>
+    </div>
+
+    <div class="field form-group dynamicForm" id="sports_day_date" hidden="true">
+      <%= f.label :sports_day_id, t('subscription_form_date'), :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-6">
+        <select class="form-control required" id="selectSportsDayDate" name="subscription[sports_day_id]" data-validation="required" data-validation-error-msg="<%= t('validation_required') %>">
+        </select>
+      </div>
+    </div>
+
+    <div class="actions form-group" >
+      <%= button_tag(type: 'submit', class: 'btn btn-primary col-sm-offset-3', id: 'toto') do %>
+          <%= (controller.action_name=='index') ? t('button_add') :  t('button_edit') %> <i class="glyphicon glyphicon-ok"></i>
+      <% end %>
+    </div>
+
+
+<% end %>

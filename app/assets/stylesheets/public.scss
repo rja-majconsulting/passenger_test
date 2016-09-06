@@ -1,0 +1,504 @@
+// Place all the styles related to the Activities controller here.
+// They will automatically be included in application.scss.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'bootstrap-datepicker';
+@import 'bootstrap-select';
+@import 'public/pushy';
+@import 'public/jquery.fancybox';
+
+//= require bxslider
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: white;
+}
+
+.containeur {
+  margin: auto;
+  //width: 1200px;
+}
+
+.header{
+  position: relative;
+}
+
+.header_left {
+  float: left;
+  height: 80px;
+  margin-left: 200px;
+  margin-bottom: 0px;
+}
+
+.header_right {
+  float: right;
+  height: 80px;
+  margin-right: 110px;
+  margin-bottom: 0px;
+}
+
+li {
+  list-style: none;
+}
+
+.body {
+  margin-top: 0px;
+  min-height: 450px;
+  background-repeat: no-repeat;
+  margin-left: 165px;
+}
+
+#tabnav {
+  margin: 0;
+  padding: 0 0 20px 10px;
+}
+
+#tabnav li {
+  margin: 0;
+  padding: 0;
+  display: inline;
+  list-style-type: none;
+}
+
+#tabnav img {
+  float: left;
+  height: 11px;
+  padding-top: 46px;
+}
+
+#tabnav a:link,
+#tabnav a:visited {
+  float: left;
+  font-family: verdana;
+  font-size: 11pt;
+  line-height: 14px;
+  margin: 0 10px 4px 10px;
+  padding-top: 46px;
+  text-decoration: none;
+  color: #494f5d;
+}
+
+#tabnav li.active a:visited,
+#tabnav a:hover {
+  border-top: 6px solid #05a8e5;
+  padding-top: 40px;
+  background: #fff;
+  color: #05a8e5;
+}
+
+#tabnav li.active a:link {
+  color: #05a8e5;
+  border-top: 6px solid #05a8e5;
+  padding-top: 40px;
+  font-weight: bold;
+}
+
+#tabnav a:hover {
+  color: #05a8e5;
+}
+
+#links {
+  position: absolute;
+  right: 150px;
+  top: 100px;
+}
+
+.button_inscription {
+  background: url(button_inscription.png) no-repeat;
+  cursor: pointer;
+  border: none;
+  width: 200px;
+  height: 38px;
+  font-family: verdana;
+  font-size: 12pt;
+  padding-right: 50px;
+}
+
+#box_natation_enfant {
+  margin-top: 10px;
+  background: url(background_natation_enfant.png) no-repeat center;
+}
+
+#box_stage {
+  margin-top: 10px;
+  background: url(background_stage.png) no-repeat center;
+}
+
+#box_module {
+  margin-top: 10px;
+  margin-right: 100px;
+  background: url(background_module.png) no-repeat center;
+}
+
+#box_natation {
+  margin-top: 10px;
+  background: url(background_natation.png) no-repeat center;
+}
+
+#box_ecole {
+  margin-top: 10px;
+  background: url(background_ecole.png) no-repeat center;
+}
+
+#box_anniversaire {
+  margin-top: 10px;
+  margin-right: 100px;
+  background: url(background_anniversaire.png) no-repeat center;
+}
+
+.box {
+  float: left;
+  height: 271px;
+  width: 250px;
+  color: white;
+}
+
+footer {
+  text-align: right;
+  margin-top: 30px;
+  margin-right: 200px;
+  float: right;
+  clear: both;
+  color: grey;
+  font-family: verdana;
+  font-size: 7pt;
+}
+
+.error {
+  color: #b94a48;
+}
+
+.input-group[class*="col-"] {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.field_with_errors
+{
+  display: block;
+  color:#a94442;
+}
+
+.field_with_errors .form-control
+{
+  border: 2px solid #a94442;
+}
+
+.alert{
+  width: 85%;
+  margin-top: 20px;
+}
+
+
+/* Utils */
+
+.margin-right-fifty {
+  margin-right: 50px;
+}
+
+.padding-fifteen {
+  padding: 15px;
+}
+
+
+/* Responsive Design */
+
+
+/* Large desktops and laptops */
+
+@media (min-width: 1200px) {
+  .col-natation-enfant {
+    margin-right: 35px;
+  }
+  .col-natation-enfant #box_natation_enfant {}
+  .col-stage {
+    margin-right: 35px;
+  }
+  .col-stage #box_stage {}
+  .col-module {
+    margin-right: 35px;
+  }
+  .col-module #box_module {}
+  .col-natation {
+    margin-right: 35px;
+  }
+  .col-natation #box_natation {}
+  .col-ecole {
+    margin-right: 35px;
+  }
+  .col-ecole #box_ecole {}
+  .col-anniversaire {
+    margin-right: 35px;
+  }
+  .col-anniversaire #box_anniversaire {}
+}
+
+
+/* Landscape tablets and medium desktops */
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .header_left {
+    margin-left: 70px;
+  }
+  .header_right {
+    margin-right: 200px;
+  }
+  #links {
+    position: absolute;
+    right: 120px;
+    top: 100px;
+  }
+  .body {
+    margin-left: 70px;
+  }
+  .bxslider li img {
+    max-width: 100% !important
+  }
+  .col-natation-enfant {
+    margin-right: 35px;
+  }
+  .col-stage {
+    margin-right: 35px;
+  }
+  .col-module {
+    margin-right: 35px;
+  }
+  .col-natation {
+    margin-right: 35px;
+  }
+  .col-ecole {
+    margin-right: 35px;
+  }
+  .col-anniversaire {
+    margin-right: 35px;
+  }
+  .alert{
+    width: 100%;
+  }
+}
+
+
+/* Portrait tablets and small desktops */
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .menu-btn {
+    position: absolute;
+    top: 25px;
+    left: 15px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  .header_left {
+    float: right;
+    margin-left: 45px;
+  }
+  .header_right {
+    // margin-right: 200px;
+  }
+  #links {
+    position: static;
+    //margin-left: auto;
+    //margin-right: auto;
+    display: table;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  .body {
+    margin-left: 0px;
+  }
+  .body .fancybox {
+    display: table;
+    margin: 0 auto;
+  }
+  .header_left {}
+  .header_right {}
+  #links {}
+  .body {}
+  .bxslider {
+    height: 210px;
+  }
+  .bxslider li img {
+    max-width: 100% !important;
+  }
+  .col-natation-enfant {}
+  .col-stage {}
+  .col-module {}
+  .col-module #box_module {
+    margin-right: 0px;
+  }
+  .col-natation {}
+  .col-ecole {}
+  .col-anniversaire {}
+  .col-anniversaire #box_anniversaire {
+    margin-right: 0px;
+  }
+  .alert{
+    width: 100%;
+  }
+}
+
+
+/* Landscape phones and portrait tablets */
+
+@media (max-width: 767px) {
+  .menu-btn {
+    position: absolute;
+    top: 25px;
+    left: 15px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  .header_left {
+    float: right;
+    margin-left: 70px;
+  }
+  .header_right {
+    margin-right: 200px;
+  }
+  #links {
+    position: static;
+    //margin-left: auto;
+    //margin-right: auto;
+    width: 100%;
+    display: table;
+    margin-bottom: 15px;
+  }
+  #links ul {
+    display: table-cell;
+    padding-left: 0px;
+    text-align: center;
+  }
+  .body {
+    margin-left: 0px;
+  }
+  .body .fancybox {
+    display: table;
+    margin: 0 auto;
+  }
+  .header_left {}
+  .header_right {}
+  #links {}
+  .body .span12 {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .bxslider {
+    height: 210px;
+  }
+  .bxslider li img {
+    max-width: 100% !important;
+  }
+  .col-natation-enfant {}
+  .col-stage {}
+  .col-module {}
+  .col-module #box_module {
+    margin-right: 0px;
+  }
+  .col-natation {}
+  .col-ecole {}
+  .col-anniversaire {}
+  .col-anniversaire #box_anniversaire {
+    margin-right: 0px;
+  }
+  .box {
+    background-size: 80% !important;
+  }
+  .alert{
+    width: 100%;
+  }
+}
+
+
+/* Portrait phones and smaller */
+
+@media (max-width: 480px) {
+  .menu-btn {
+    position: absolute;
+    top: 25px;
+    left: 15px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  .header_left {
+    float: right;
+    margin-left: 70px;
+  }
+  .header_right {
+    margin-right: 200px;
+  }
+  #links {
+    position: static;
+    //margin-left: auto;
+    //margin-right: auto;
+    width: 100%;
+    display: table;
+    margin-bottom: 15px;
+  }
+  #links ul {
+    display: table-cell;
+    padding-left: 0px;
+    text-align: center;
+  }
+  .body {
+    margin-left: 0px;
+  }
+  .body .fancybox {
+    display: table;
+    margin: 0 auto;
+  }
+  .header_left {}
+  .header_right {}
+  #links {}
+  .body {}
+  .bxslider {
+    height: 150px;
+  }
+  .bxslider > ul {
+    padding-left: 0px !important;
+  }
+  .bxslider li img {
+    max-width: 100% !important;
+    height: 135px;
+  }
+  .col-natation-enfant {}
+  .col-stage {}
+  .col-module {}
+  .col-module #box_module {
+    margin-right: 0px;
+  }
+  .col-natation {}
+  .col-ecole {}
+  .col-anniversaire {}
+  .col-anniversaire #box_anniversaire {
+    margin-right: 0px;
+  }
+  .box {
+    background-size: 90% !important;
+    height: 140px;
+    width: 140px;
+  }
+  .fancybox-overlay {
+    height: 100% !important;
+  }
+  .fancybox-wrap {
+    height: 90% !important;
+  }
+  .fancybox-skin {
+    height: 100% !important;
+  }
+  .fancybox-outer {
+    height: 100% !important;
+  }
+  .fancybox-inner {
+    height: 100% !important;
+  }
+  iframe html {
+    height: 100% !important;
+  }
+  .alert{
+    width: 100%;
+  }
+}

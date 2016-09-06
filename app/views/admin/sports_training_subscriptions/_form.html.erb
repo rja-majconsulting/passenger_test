@@ -1,0 +1,46 @@
+<%= form_for([:admin, @sports_training_subscription], :html => {:class => "form-horizontal"})  do |f| %>
+  <% if @sports_training_subscription.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <h3><%= t('validation_error_message_1') + pluralize(@sports_training_subscription.errors.count, t('validation_error_message_2')) + t('validation_error_message_3') %></h3>
+
+      <ul>
+        <% @sports_training_subscription.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <%= render 'admin/subscription/form', form: f, subscription: @sports_training_subscription %>
+
+  <div class="field form-group">
+    <%= f.label t('sports_training_subscription_form_stage'), :class => "col-sm-3 control-label" %>
+    <div class="col-sm-6">
+      <%= f.select :sports_training_id, options_for_select(@sports_trainings.map{|s|[s.place.alias + t('from') + l(s.startDate) + t('to') + l(s.endDate), s.id]}), {}, {:class => "form-control select", 'data-style' => "btn-primary"} %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label t('sports_training_subscription_form_morning_activity'), :class => "col-sm-3 control-label" %>
+    <div class="col-sm-6">
+      <%= f.select :activity_morning_id, options_for_select(@morningActivities.map{|a|[a.name, a.id]} , @sports_training_subscription.activity_morning_id) ,  {}, {:class => "form-control select", 'data-style' => "btn-primary"} %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label t('sports_training_subscription_form_afternoon_activity'), :class => "col-sm-3 control-label" %>
+    <div class="col-sm-6">
+      <%= f.select :activity_afternoon_id, options_for_select(@afternoonActivities.map{|a|[a.name, a.id]}, @sports_training_subscription.activity_afternoon_id), {}, {:class => "form-control select", 'data-style' => "btn-primary"} %>
+    </div>
+  </div>
+
+  <div class="actions form-group" >
+    <%= link_to admin_sports_training_subscriptions_path, :class => "btn btn-primary col-sm-offset-3" do %>
+        <i class="glyphicon glyphicon-chevron-left"></i> <%= t('button_back') %>
+    <% end %>
+    <%= button_tag(type: 'submit', class: "btn btn-primary col-sm-offset-4") do %>
+        <%= (controller.action_name=='new' or controller.action_name=='create') ? t('button_add') :  t('button_edit') %> <i class="glyphicon glyphicon-ok"></i>
+    <% end %>
+  </div>
+<% end %>

@@ -1,0 +1,39 @@
+<div class="content">
+
+  <% if !notice.blank? %>
+      <div class="alert alert-success" role="alert"><%= notice %></div>
+  <% end %>
+
+  <h1><%= t('sport_day_index_title') %></h1>
+
+  <table class="table">
+    <%= link_to new_admin_sports_day_path, class: 'col-md-offset-10' do %>
+        <span class="glyphicon glyphicon-plus"></span>
+    <% end %>
+    <thead>
+      <tr>
+        <th><%= t('sport_day_table_place')%></th>
+        <th><%= t('sport_day_table_date')%></th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @sports_days.each do |sports_day| %>
+        <tr>
+          <td><%= sports_day.place.alias %></td>
+          <td><%= l sports_day.date %></td>
+          <td>
+            <%= link_to edit_admin_sports_day_path(sports_day), class: 'btn btn-primary btn-sm' do %>
+                <span class="glyphicon glyphicon-edit"></span>
+            <% end %>
+            &nbsp;&nbsp;
+            <%= link_to admin_sports_day_path(sports_day.id), method: :delete, data: { confirm: t('sport_day_destroy_confirmation_message') }, class:'btn btn-danger btn-sm' do %>
+                <span class="glyphicon glyphicon-remove"></span>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

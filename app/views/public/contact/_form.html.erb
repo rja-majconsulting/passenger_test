@@ -1,0 +1,62 @@
+<%= form_for @contact, :url => public_contact_send_path,:html => {:class => 'form-horizontal'}  do |f| %>
+    <% if @contact.errors.any? %>
+        <div class="alert alert-danger" role="alert">
+          <h3><%= t('validation_error_message_1') + pluralize(@contact.errors.count, t('validation_error_message_2')) + t('validation_error_message_3') %></h3>
+
+          <ul>
+            <% @contact.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field form-group">
+      <%= f.label t('contact_form_lastName'), :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-6">
+        <%= f.text_field :lastName, :class => 'form-control', :placeholder => t('contact_form_lastName_placeholder'),
+             data: {
+                 :validation => "length",
+                 "validation-length" => "min2",
+                 "validation-error-msg" => t('validation_required_min_length', nb: '2')
+             } %>
+      </div>
+    </div>
+    <div class="field form-group">
+      <%= f.label t('contact_form_firstName'), :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-6">
+        <%= f.text_field :firstName, :class => 'form-control', :placeholder => t('contact_form_firstName_placeholder'),
+             data: {
+                 :validation => "length",
+                 "validation-length" => "min2",
+                 "validation-error-msg" => t('validation_required_min_length', nb: '2')
+             } %>
+      </div>
+    </div>
+    <div class="field form-group">
+      <%= f.label t('contact_form_email'), :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-6">
+        <%= f.text_field :email, :class => 'form-control', :placeholder => t('contact_form_email_placeholder'),
+             data: {
+                 :validation => "email",
+                 "validation-error-msg" => t('validation_email')
+             } %>
+      </div>
+    </div>
+    <div class="field form-group">
+      <%= f.label t('contact_form_message'), :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-6">
+        <%= f.text_area :message, :class => 'form-control', :placeholder => t('contact_form_message_placeholder') , :rows => 10,
+              data: {
+                  :validation => "required",
+                  "validation-error-msg" => t('validation_required')
+              } %>
+      </div>
+    </div>
+
+    <div class="actions form-group" >
+      <%= button_tag(type: 'submit', class: 'btn btn-primary col-sm-offset-2') do %>
+          <%= t('button_send') %> <i class="glyphicon glyphicon-ok"></i>
+      <% end %>
+    </div>
+<% end %>

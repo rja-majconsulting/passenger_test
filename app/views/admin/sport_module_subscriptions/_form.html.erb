@@ -1,0 +1,40 @@
+<%= form_for([:admin, @sport_module_subscription], :html => {:class => "form-horizontal"})  do |f| %>
+    <% if @sport_module_subscription.errors.any? %>
+        <div class="alert alert-danger" role="alert">
+          <h3><%= t('validation_error_message_1') + pluralize(@sport_module_subscription.errors.count, t('validation_error_message_2')) + t('validation_error_message_3') %></h3>
+
+          <ul>
+            <% @sport_module_subscription.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+
+    <%= render 'admin/subscription/form', form: f, subscription: @sport_module_subscription %>
+
+    <div class="field form-group">
+      <%= f.label t('sport_module_subscription_table_module'), :class => "col-sm-3 control-label" %>
+      <div class="col-sm-6">
+        <%= f.select :sport_module_id, options_for_select(@sport_modules.map{|m|[m.code, m.id]}, @sport_module_subscription.sport_module_id), {}, {:class => "form-control select", 'data-style' => "btn-primary"} %>
+      </div>
+    </div>
+
+    <% if(controller.action_name=='edit' or controller.action_name=='update') %>
+      <div class="field form-group">
+        <%= f.label t('sport_module_subscription_table_due_date'), :class => "col-sm-3 control-label" %>
+        <div class="col-sm-6">
+          <%= f.date_select :dueDate, :class => "form-control" %>
+        </div>
+      </div>
+    <% end %>
+    <div class="actions form-group" >
+      <%= link_to admin_sport_module_subscriptions_path, :class => "btn btn-primary col-sm-offset-3" do %>
+          <i class="glyphicon glyphicon-chevron-left"></i> <%= t('button_back') %>
+      <% end %>
+      <%= button_tag(type: 'submit', class: "btn btn-primary col-sm-offset-4") do %>
+          <%= (controller.action_name=="new" or controller.action_name=="create") ? t('button_add') :  t('button_edit') %> <i class="glyphicon glyphicon-ok"></i>
+      <% end %>
+    </div>
+<% end %>

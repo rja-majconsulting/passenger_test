@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  code: MyString
+  place_id: 
+  startDate: 2016-07-04
+  endDate: 2016-07-04
+  startTime: 2016-07-04 09:10:15
+  endTime: 2016-07-04 09:10:15
+  halfDayPrice: 9.99
+  fullDayPrice: 9.99
+  morningNursery: MyString
+  afternoonNursery: MyString
+
+two:
+  code: MyString
+  place_id: 
+  startDate: 2016-07-04
+  endDate: 2016-07-04
+  startTime: 2016-07-04 09:10:15
+  endTime: 2016-07-04 09:10:15
+  halfDayPrice: 9.99
+  fullDayPrice: 9.99
+  morningNursery: MyString
+  afternoonNursery: MyString

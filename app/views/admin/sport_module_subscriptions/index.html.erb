@@ -1,0 +1,150 @@
+<div class="content">
+
+  <% if !notice.blank? %>
+      <div class="alert alert-success" role="alert"><%= notice %></div>
+  <% end %>
+
+  <h1><%= t('sport_module_subscription_index_title') %></h1><br>
+
+  <div class="col-sm-3 pull-right">
+    <input class="form-control search" placeholder="Recherche" />
+  </div>
+  <br><br><br>
+
+  <div class="panel-group" id="accordion">
+    <div class="panel panel-warning">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <span class="badge pull-right"><%= @sport_module_waiting_payment.length %></span>
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapseWaitingPay">
+            <%= t('sport_module_subscription_table_waiting_payment') %>
+          </a>
+        </h4>
+      </div>
+      <div id="collapseWaitingPay" class="panel-collapse collapse">
+        <div class="panel-body">
+          <table class="table">
+            <thead>
+            <th><%= t('sport_module_subscription_table_lastName') %></th>
+            <th><%= t('sport_module_subscription_table_firstName') %></th>
+            <th><%= t('sport_module_subscription_table_module') %></th>
+            <th></th>
+            </thead>
+            <tbody>
+            <% @sport_module_waiting_payment.each do |subscription_wp| %>
+              <tr class="subscription">
+                <td class="col-md-2 name"><%= subscription_wp.lastName %></td>
+                <td class="col-md-2 firstname"><%= subscription_wp.firstName %></td>
+                <td class="col-md-2"><%= subscription_wp.sport_module.code %></td>
+                <td>
+                  <%= link_to edit_admin_sport_module_subscription_path(subscription_wp), class: 'btn btn-primary btn-sm' do %>
+                      <span class="glyphicon glyphicon-edit"></span>
+                  <% end %>
+                  &nbsp; &nbsp;
+                  <%= link_to admin_sport_module_subscription_path(subscription_wp.id), method: :delete, data: { confirm: t('subscription_destroy_confirmation_message') }, class:'btn btn-danger btn-sm' do %>
+                      <span class="glyphicon glyphicon-trash"></span>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+            </tbody>
+
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-danger">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <span class="badge pull-right"><%= @sport_module_unrenewed.length %></span>
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapseExpired">
+            <%= t('sport_module_subscription_table_unrenewed') %>
+          </a>
+        </h4>
+      </div>
+      <div id="collapseExpired" class="panel-collapse collapse">
+        <div class="panel-body">
+          <table class="table">
+            <thead>
+            <th><%= t('sport_module_subscription_table_lastName') %></th>
+            <th><%= t('sport_module_subscription_table_firstName') %></th>
+            <th><%= t('sport_module_subscription_table_due_date') %></th>
+            <th></th>
+            </thead>
+            <tbody>
+            <% @sport_module_unrenewed.each do |subscription_unrenewed| %>
+              <tr class="subscription">
+                <td class="col-md-2 name"><%= subscription_unrenewed.lastName %></td>
+                <td class="col-md-2 firstname"><%= subscription_unrenewed.firstName %></td>
+                <td class="col-md-2"><%= l subscription_unrenewed.dueDate %></span></td>
+                <td>
+                  <%= link_to edit_admin_sport_module_subscription_path(subscription_unrenewed), class: 'btn btn-primary btn-sm' do %>
+                      <span class="glyphicon glyphicon-edit"></span>
+                  <% end %>
+                  &nbsp; &nbsp;
+                  <%= link_to admin_sport_module_subscription_path(subscription_unrenewed.id), method: :delete, data: { confirm: t('subscription_destroy_confirmation_message') }, class:'btn btn-danger btn-sm' do %>
+                      <span class="glyphicon glyphicon-trash"></span>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <% @sport_modules.each do |sport_module| %>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <span class="badge pull-right"><%= sport_module.subscriptions.length %></span>
+            <a data-toggle="collapse" data-parent="#accordion" href=#<%= sport_module.id %>>
+              <%= sport_module.code %>
+            </a>
+          </h4>
+        </div>
+        <div id="<%= sport_module.id %>" class="panel-collapse collapse">
+          <div class="panel-body">
+            <table class="table">
+              <%= link_to new_admin_sport_module_subscription_path, class: 'col-md-offset-10' do %>
+                  <span class="glyphicon glyphicon-plus "></span>
+              <% end %>
+              &nbsp; &nbsp;
+              <%= link_to export_admin_sport_module_subscription_path(sport_module, format: "xlsx") do %>
+                  <span class="glyphicon glyphicon-export"></span>
+              <% end %>
+              <thead>
+              <th><%= t('sport_module_subscription_table_lastName') %></th>
+              <th><%= t('sport_module_subscription_table_firstName') %></th>
+              <th><%= t('sport_module_subscription_table_due_date') %></th>
+              <th></th>
+              </thead>
+              <tbody>
+              <% sport_module.subscriptions.each do |subscription| %>
+              <tr class="subscription">
+                <td class="col-md-2 name"><%= subscription.lastName %></td>
+                <td class="col-md-2 firstname"><%= subscription.firstName %></td>
+                <td class="col-md-2"><%= l subscription.dueDate %></td>
+                <td>
+                  <%= link_to edit_admin_sport_module_subscription_path(subscription), class: 'btn btn-primary btn-sm' do %>
+                      <span class="glyphicon glyphicon-edit"></span>
+                  <% end %>
+                  &nbsp; &nbsp;
+                  <%= link_to confirm_admin_sport_module_subscription_path(subscription), class: 'btn btn-success btn-sm' do %>
+                      <span class="glyphicon glyphicon-envelope"></span>
+                  <% end %>
+                  &nbsp; &nbsp;
+                  <%= link_to admin_sport_module_subscription_path(subscription.id), method: :delete, data: { confirm: t('subscription_destroy_confirmation_message') }, class:'btn btn-danger btn-sm' do %>
+                      <span class="glyphicon glyphicon-trash"></span>
+                  <% end %>
+                </td>
+              </tr>
+              <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

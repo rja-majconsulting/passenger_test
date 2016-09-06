@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vivasport</title>
+  <%= stylesheet_link_tag 'public', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'public', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <%= render('layouts/public/public_responsive_menu') %>
+
+  <div id="container" class="container">
+    <header class="header">
+        <!-- Menu Button -->
+        <div class="menu-btn hidden-lg hidden-md">&#9776; Menu</div>
+        <%= render('layouts/public/public_header') %>
+    </header>
+    <div class="body">
+      <%= yield %>
+    </div>
+
+
+    <footer>
+      <%= render('layouts/public/public_footer') %>
+    </footer>
+
+  </div>
+
+</body>
+</html>

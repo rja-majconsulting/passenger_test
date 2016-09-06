@@ -1,0 +1,12 @@
+wb = xlsx_package.workbook
+wb.styles do |style|
+  header_row = style.add_style(:bg_color => "EFC376", :border => Axlsx::STYLE_THIN_BORDER, :alignment => { horizontal: :center }, :b => 1)
+  table_row = style.add_style(alignment: { horizontal: :center })
+
+wb.add_worksheet(name: "Subscriptions") do |sheet|
+    sheet.add_row getHeaderRow(), :height => 40, :style => header_row
+    @subscriptions.each do |subscription|
+        sheet.add_row getBodyRow(subscription), :height => 30, :style => table_row
+    end
+  end
+end

@@ -1,0 +1,41 @@
+<div class="content">
+
+  <% if !notice.blank? %>
+      <div class="alert alert-success" role="alert"><%= notice %></div>
+  <% end %>
+  <h1><%= t('place_index_title') %></h1>
+  <%= link_to new_admin_place_path, class: 'col-md-offset-11' do %>
+      <span class="glyphicon glyphicon-plus"></span>
+  <% end %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th><%= t('place_table_alias') %></th>
+        <th><%= t('place_table_street') %></th>
+        <th><%= t('place_table_city') %></th>
+        <th><%= t('place_table_postal_code') %></th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @places.each do |place| %>
+        <tr>
+          <td><%= place.alias %></td>
+          <td><%= place.street %></td>
+          <td><%= place.city %></td>
+          <td><%= place.postalCode %></td>
+          <td>
+            <%= link_to edit_admin_place_path(place), class: 'btn btn-primary btn-sm' do %>
+                <span class="glyphicon glyphicon-edit"></span>
+            <% end %>
+            &nbsp;&nbsp;
+            <%= link_to admin_place_path(place.id), method: :delete, data: { confirm: t('place_destroy_confirmation_message') }, class:'btn btn-danger btn-sm' do %>
+                <span class="glyphicon glyphicon-remove"></span>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @sports_day.code %>
+</p>
+
+<p>
+  <strong>Place:</strong>
+  <%= @sports_day.place %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @sports_day.date %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @sports_day.price %>
+</p>
+
+<p>
+  <strong>Starttime:</strong>
+  <%= @sports_day.startTime %>
+</p>
+
+<p>
+  <strong>Endtime:</strong>
+  <%= @sports_day.endTime %>
+</p>
+
+<p>
+  <strong>Morningplace:</strong>
+  <%= @sports_day.morningPlace %>
+</p>
+
+<p>
+  <strong>Afternoonplace:</strong>
+  <%= @sports_day.afternoonPlace %>
+</p>
+
+<p>
+  <strong>PaymentDate:</strong>
+  <%= @sports_day.paymentDate %>
+</p>
+
+<%= link_to 'Edit', edit_sports_day_path(@sports_day) %> |
+<%= link_to 'Back', sports_days_path %>

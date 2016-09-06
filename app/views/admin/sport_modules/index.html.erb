@@ -1,0 +1,48 @@
+<div class="content">
+
+  <% if !notice.blank? %>
+      <div class="alert alert-success" role="alert"><%= notice %></div>
+  <% end %>
+
+  <h1><%= t('sport_module_index_title') %></h1>
+
+  <table class="table">
+    <%= link_to new_admin_sport_module_path, class: 'col-md-offset-11' do %>
+        <span class="glyphicon glyphicon-plus"></span>
+    <% end %>
+    <thead>
+      <tr>
+        <th><%= t('sport_module_table_place') %></th>
+        <th><%= t('sport_module_table_activity') %></th>
+        <th><%= t('sport_module_table_coach') %></th>
+        <th><%= t('sport_module_table_day') %></th>
+        <th><%= t('sport_module_table_start_time') %></th>
+        <th><%= t('sport_module_table_end_time') %></th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @sport_modules.each do |sport_module| %>
+        <tr>
+          <td><%= sport_module.place.alias %></td>
+          <td><%= sport_module.activity %></td>
+          <td><%= sport_module.coach.lastName %></td>
+          <td><%= t("date.day_names")[sport_module.day] %></td>
+          <td><%= l sport_module.startTime %></td>
+          <td><%= l sport_module.endTime %></td>
+          <td>
+            <%= link_to edit_admin_sport_module_path(sport_module), class: 'btn btn-primary btn-sm' do %>
+                <span class="glyphicon glyphicon-edit"></span>
+            <% end %>
+            &nbsp;&nbsp;
+            <%= link_to admin_sport_module_path(sport_module.id), method: :delete, data: { confirm: t('sport_module_destroy_confirmation_message') }, class:'btn btn-danger btn-sm' do %>
+                <span class="glyphicon glyphicon-remove"></span>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>

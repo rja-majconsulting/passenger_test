@@ -1,0 +1,45 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: SportModuleSubscription
+  lastName: Jammart
+  firstName: Raphael
+  birthDate: 1979-06-17
+  street: Rue des Fripiers 16
+  city: Huppaye
+  postalCode: 1367
+  telefonNumber: 0497202018
+  email: rja@maj.consulting
+  comment: comment1
+  paid: false
+  sport_module_id: 
+  sports_training_id: 
+  swim_lesson_id: 
+  sports_day_id: 
+  place_id: 
+  level_id: 
+  activity_morning_id: 
+  activity_afternoon_id: 
+  dueDate: 2016-07-16
+
+two:
+  type: SportsDaySubscription
+  lastName: Jammart
+  firstName: Victoria
+  birthDate: 2010-01-17
+  street: Rue des Fripiers 16
+  city: Huppaye
+  postalCode: 1367
+  telefonNumber: 0497202018
+  email: vic@maj.consulting
+  comment: comment2
+  paid: false
+  sport_module_id: 
+  sports_training_id: 
+  swim_lesson_id: 
+  sports_day_id: 
+  place_id: 
+  level_id: 
+  activity_morning_id: 
+  activity_afternoon_id: 
+  dueDate: 2016-07-05

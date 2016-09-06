@@ -1,0 +1,30 @@
+<div class="content height-hundred" style="background-color:#faa61a">
+
+  <h3>Venez apprendre à nager quelques soit votre âge ou votre niveau !</h3><br>
+
+  <h3>Choisissez parmi nos piscines :</h3>
+
+  <ul>
+    <li>> Piscine de Gozée (Aqua et Thérapie)</li>
+    <li>> Piscine de l’Hélios Charleroi</li>
+    <li>> Piscine de Biesme</li>
+    <li>> Piscine du collège de Bonne Espérance de Estinnes</li>
+    <li>> Piscine de l’Athénée Delvaux de Ottignies LLN</li>
+    <li>> Piscine de Jambes </li>
+    <li>> A votre domicile (jours à déterminer)</li>
+  </ul>
+
+
+  <h3><%= link_to "Plus d'infos ? Cliquez ICI", '/Natation_adultes.pdf', :target => '_blank' %></h3>
+
+  <ul>
+    <li>
+      <%= link_to public_registration_path, :target => '_parent'  do %>
+          <input type="button" value="<%= t('menu_registration')%>" class="button_inscription"/>
+      <% end %>
+    </li>
+  </ul>
+
+
+
+</div>

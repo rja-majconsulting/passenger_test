@@ -1,0 +1,22 @@
+<div class="content">
+
+  <% if !notice.blank? %>
+      <div class="alert alert-success" role="alert"><%= notice %></div>
+  <% end %>
+
+  <h1>Dashboard</h1>
+  <p>Recherche inscription</p>
+
+  <%= render 'form' %><br><br>
+
+
+
+  <% if @subscriptions and @subscriptions.length > 0 %>
+       <%= render 'sportsTrainingSubscription', subscriptions: @subscriptions_by_type[SportsTrainingSubscription.name], activities: Activity.all %>
+       <%= render 'sportsDaySubscription', subscriptions: @subscriptions_by_type[SportsDaySubscription.name] %>
+       <%= render 'sportModuleSubscription', subscriptions: @subscriptions_by_type[SportModuleSubscription.name] %>
+       <%= render 'swimLessonSubscription', subscriptions: @subscriptions_by_type[SwimLessonSubscription.name] %>
+   <% else %>
+    <p>La recherche n'a retourné aucun résultat</p>
+  <% end %>
+</div>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: VTT
+  material: Vélo, casque, gourde
+  maxSubscriptions: 15
+
+two:
+  name: Judo
+  material: Pijama
+  maxSubscriptions: 10

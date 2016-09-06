@@ -1,0 +1,23 @@
+<html>
+<head>
+
+</head>
+<body>
+<p align='justify'>
+  Voici une demande d'inscription (complète) provenant du site internet Vivasport.be.<br/><br/>
+  <b>Nom :</b> <%= @subscription[:lastName] %><br/>
+  <b>Prénom :</b> <%= @subscription[:firstName] %><br/>
+  <b>Adresse :</b> <%= @subscription[:street] %><br/>
+  <b>Ville :</b> <%= @subscription[:city] + ' (' + @subscription[:postalCode] + ')' %><br/>
+  <b>Date de naissance :</b> <%= @subscription[:birthDate] %><br/>
+  <b>Email :</b> <%= @subscription[:email] %> <br/>
+  <b>GSM : </b><%= @subscription[:telefonNumber] %><br/>
+  <b>Activite : </b>Anniversaire<br/>
+  <b>Lieu : </b><%= @subscription[:birthday_place] %><br>
+  <b>Formule souhaitée: </b><%= @subscription[:birthday_type] %><br><br>
+
+
+  Le webmaster.</p>
+
+</body>
+</html>

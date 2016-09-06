@@ -1,0 +1,234 @@
+<div class="content">
+
+  <% if !notice.blank? %>
+      <div class="alert alert-success" role="alert"><%= notice %></div>
+  <% end %>
+
+  <h1><%= t('swim_lesson_subscription_index_title') %></h1><br>
+
+  <div class="col-sm-3 pull-right">
+    <input class="form-control search" placeholder="Recherche" />
+  </div>
+  <br><br><br>
+
+  <div class="panel-group" id="accordion">
+    <div class="panel panel-warning">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <span class="badge pull-right"><%= @swim_lesson_waiting_payment.length %></span>
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapseWaitingPay">
+            <%= t('swim_lesson_subscription_table_waiting_payment') %>
+          </a>
+        </h4>
+      </div>
+      <div id="collapseWaitingPay" class="panel-collapse collapse">
+        <div class="panel-body">
+          <table class="table">
+            <thead>
+            <th><%= t('swim_lesson_subscription_table_lastName') %></th>
+            <th><%= t('swim_lesson_subscription_table_firstName') %></th>
+            <th><%= t('swim_lesson_subscription_table_telefon_number') %></th>
+            <th><%= t('swim_lesson_subscription_table_lesson') %></th>
+            <th></th>
+            </thead>
+            <tbody>
+            <% @swim_lesson_waiting_payment.each do |subscription_wp| %>
+              <tr class="subscription">
+                <td class="col-md-2 name"><%= subscription_wp.lastName %></td>
+                <td class="col-md-2 firstname"><%= subscription_wp.firstName %></td>
+                <td class="col-md-2"><%= subscription_wp.telefonNumber %></td>
+                <td class="col-md-2"><%= subscription_wp.swim_lesson.code %></td>
+                <td>
+                  <%= link_to edit_admin_swim_lesson_subscription_path(subscription_wp), class: 'btn btn-primary btn-sm' do %>
+                      <span class="glyphicon glyphicon-edit"></span>
+                  <% end %>
+                  &nbsp; &nbsp;
+                  <%= link_to confirm_admin_swim_lesson_subscription_path(subscription_wp), class: 'btn btn-success btn-sm' do %>
+                      <span class="glyphicon glyphicon-envelope"></span>
+                  <% end %>
+                  &nbsp; &nbsp;
+                  <%= link_to admin_swim_lesson_subscription_path(subscription_wp.id), method: :delete, data: { confirm: t('subscription_destroy_confirmation_message') }, class:'btn btn-danger btn-sm' do %>
+                      <span class="glyphicon glyphicon-trash"></span>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+            </tbody>
+
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-warning">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <span class="badge pull-right"><%= @swim_lesson_waiting_availability.length %></span>
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapseWaitingSeat">
+            <%= t('swim_lesson_subscription_table_waiting_availability') %>
+          </a>
+        </h4>
+      </div>
+      <div id="collapseWaitingSeat" class="panel-collapse collapse">
+        <div class="panel-body">
+          <table class="table">
+            <thead>
+            <th><%= t('swim_lesson_subscription_table_lastName') %></th>
+            <th><%= t('swim_lesson_subscription_table_firstName') %></th>
+            <th><%= t('swim_lesson_subscription_table_telefon_number') %></th>
+            <th><%= t('swim_lesson_subscription_table_place') %></th>
+            <th><%= t('swim_lesson_subscription_table_level') %></th>
+            <th></th>
+            </thead>
+            <tbody>
+            <% @swim_lesson_waiting_availability.each do |subscription_wa| %>
+              <tr class="subscription">
+                <td class="col-md-2 name"><%= subscription_wa.lastName %></td>
+                <td class="col-md-2 firstname"><%= subscription_wa.firstName %></td>
+                <td class="col-md-2"><%= subscription_wa.telefonNumber %></td>
+                <td class="col-md-2"><%= subscription_wa.place.alias %></td>
+                <td class="col-md-2"><%= subscription_wa.level.name %></td>
+                <td>
+                  <%= link_to edit_admin_swim_lesson_subscription_path(subscription_wa), class: 'btn btn-primary btn-sm' do %>
+                      <span class="glyphicon glyphicon-edit"></span>
+                  <% end %>
+                  &nbsp; &nbsp;
+                  <%= link_to admin_swim_lesson_subscription_path(subscription_wa.id), method: :delete, data: { confirm: t('subscription_destroy_confirmation_message') }, class:'btn btn-danger btn-sm' do %>
+                      <span class="glyphicon glyphicon-trash"></span>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+            </tbody>
+
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-danger">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <span class="badge pull-right"><%= @swim_lesson_unrenewed.length %></span>
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapseExpired">
+            <%= t('swim_lesson_subscription_table_unrenewed') %>
+          </a>
+        </h4>
+      </div>
+      <div id="collapseExpired" class="panel-collapse collapse">
+        <div class="panel-body">
+          <table class="table">
+            <thead>
+            <th><%= t('swim_lesson_subscription_table_lastName') %></th>
+            <th><%= t('swim_lesson_subscription_table_firstName') %></th>
+            <th><%= t('swim_lesson_subscription_table_telefon_number') %></th>
+            <th><%= t('swim_lesson_subscription_table_lesson') %></th>
+            <th><%= t('swim_lesson_subscription_table_due_date') %></th>
+            <th></th>
+            </thead>
+            <tbody>
+            <% @swim_lesson_unrenewed.each do |subscription_unrenewed| %>
+              <tr class="subscription">
+                <td class="col-md-2 name"><%= subscription_unrenewed.lastName %></td>
+                <td class="col-md-2 firstname"><%= subscription_unrenewed.firstName %></td>
+                <td class="col-md-2"><%= subscription_unrenewed.telefonNumber %></td>
+                <td class="col-md-2"><%= subscription_unrenewed.swim_lesson.code %></td>
+                <td class="col-md-2"><%= l subscription_unrenewed.dueDate %></td>
+                <td>
+                  <%= link_to edit_admin_swim_lesson_subscription_path(subscription_unrenewed), class: 'btn btn-primary btn-sm' do %>
+                      <span class="glyphicon glyphicon-edit"></span>
+                  <% end %>
+                  &nbsp; &nbsp;
+                  <%= link_to confirm_admin_swim_lesson_subscription_path(subscription_unrenewed), class: 'btn btn-success btn-sm' do %>
+                      <span class="glyphicon glyphicon-envelope"></span>
+                  <% end %>
+                  &nbsp; &nbsp;
+                  <%= link_to admin_swim_lesson_subscription_path(subscription_unrenewed.id), method: :delete, data: { confirm: t('subscription_destroy_confirmation_message') }, class:'btn btn-danger btn-sm' do %>
+                      <span class="glyphicon glyphicon-trash"></span>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel-group" id="main_accordion">
+    <% @swim_lessons.each_with_index do |(category, swim_lessons) , index| %>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <span class="badge pull-right"><%= @swim_lessons_count[category] %></span>
+              <a data-toggle="collapse" data-parent="#main_accordion" href="#panel_<%= index %>">
+                <%= category %>
+              </a>
+            </h4>
+          </div>
+          <div id="panel_<%= index %>" class="panel-collapse collapse">
+            <div class="panel-body">
+              <div class="panel-group" id="sub_accordion_<%= index%>">
+                <% swim_lessons.each do |swim_lesson| %>
+                    <div class="panel panel-primary">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          <span class="badge pull-right"><%= swim_lesson.swim_lesson_subscriptions.length %></span>
+                          <a data-toggle="collapse" data-parent="#sub_accordion_<%= index%>" href="#<%= swim_lesson.id %>">
+                            <%= swim_lesson.code %>
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="<%= swim_lesson.id%>" class="panel-collapse collapse">
+                        <div class="panel-body">
+                          <table class="table">
+                            <%= link_to new_admin_swim_lesson_subscription_path, class: 'col-md-offset-10' do %>
+                                <span class="glyphicon glyphicon-plus"></span>
+                            <% end %>
+                            &nbsp; &nbsp;
+                            <%= link_to export_admin_swim_lesson_subscription_path(swim_lesson, format: "xlsx") do %>
+                                <span class="glyphicon glyphicon-export"></span>
+                            <% end %>
+                            <thead>
+                            <th><%= t('swim_lesson_subscription_table_lastName') %></th>
+                            <th><%= t('swim_lesson_subscription_table_firstName') %></th>
+                            <th><%= t('swim_lesson_subscription_table_telefon_number') %></th>
+                            <th>Date de naissance</th>
+                            <th>Date échéance</th>
+                            <th></th>
+                            </thead>
+                            <tbody>
+                            <% swim_lesson.swim_lesson_subscriptions.each do |subscription| %>
+                              <tr class="subscription">
+                                  <td class="col-md-2 name"><%= subscription.lastName %></td>
+                                  <td class="col-md-2 firstname"><%= subscription.firstName %></td>
+                                  <td class="col-md-2"><%= subscription.telefonNumber %></td>
+                                  <td class="col-md-2"><%= l subscription.birthDate %></td>
+                                  <td class="col-md-2"><%= l subscription.dueDate %></td>
+                                  <td>
+                                    <%= link_to edit_admin_swim_lesson_subscription_path(subscription), class: 'btn btn-primary btn-sm' do %>
+                                        <span class="glyphicon glyphicon-edit"></span>
+                                    <% end %>
+                                    &nbsp; &nbsp;
+                                    <%= link_to confirm_admin_swim_lesson_subscription_path(subscription), class: 'btn btn-success btn-sm' do %>
+                                        <span class="glyphicon glyphicon-envelope"></span>
+                                    <% end %>
+                                    &nbsp; &nbsp;
+                                    <%= link_to admin_swim_lesson_subscription_path(subscription.id), method: :delete, data: { confirm: t('subscription_destroy_confirmation_message') }, class:'btn btn-danger btn-sm' do %>
+                                        <span class="glyphicon glyphicon-trash"></span>
+                                    <% end %>
+                                  </td>
+                                </tr>
+                            <% end %>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>

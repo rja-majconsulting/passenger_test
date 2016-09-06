@@ -1,0 +1,42 @@
+<% if !notice.blank? %>
+    <div class="alert alert-success" role="alert"><%= notice %></div>
+<% end %>
+<div class="row">
+  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-natation-enfant">
+    <%= link_to swimming_children_iframe_path, :class => 'fancybox fancybox.iframe' do %>
+        <div id="box_natation_enfant" class="box">
+        </div>
+    <% end %>
+  </div>
+  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-stage">
+    <%= link_to sports_training_iframe_path, :class => 'fancybox fancybox.iframe' do %>
+      <div id="box_stage" class="box">
+      </div>
+    <% end %>
+  </div>
+  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-anniversaire">
+    <%= link_to birthday_iframe_path, :class => 'fancybox fancybox.iframe' do %>
+      <div id="box_anniversaire" class="box">
+      </div>
+    <% end %>
+  </div>
+  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-module">
+    <%= link_to sport_module_iframe_path, :class => 'fancybox fancybox.iframe' do %>
+      <div id="box_module" class="box">
+      </div>
+    <% end %>
+  </div>
+
+  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-natation">
+    <%= link_to swimming_iframe_path, :class => 'fancybox fancybox.iframe' do %>
+      <div id="box_natation" class="box">
+      </div>
+    <% end %>
+  </div>
+  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-ecole">
+    <%= link_to school_iframe_path, :class => 'fancybox fancybox.iframe' do %>
+      <div id="box_ecole" class="box">
+      </div>
+    <% end %>
+  </div>
+</div>

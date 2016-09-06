@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @swim_lesson.code %>
+</p>
+
+<p>
+  <strong>Place:</strong>
+  <%= @swim_lesson.place %>
+</p>
+
+<p>
+  <strong>Level:</strong>
+  <%= @swim_lesson.level %>
+</p>
+
+<p>
+  <strong>Coach:</strong>
+  <%= @swim_lesson.coach %>
+</p>
+
+<p>
+  <strong>Day:</strong>
+  <%= @swim_lesson.day %>
+</p>
+
+<p>
+  <strong>Starttime:</strong>
+  <%= @swim_lesson.startTime %>
+</p>
+
+<p>
+  <strong>Endtime:</strong>
+  <%= @swim_lesson.endTime %>
+</p>
+
+<p>
+  <strong>Maxsubscriptions:</strong>
+  <%= @swim_lesson.maxSubscriptions %>
+</p>
+
+<%= link_to 'Edit', edit_swim_lesson_path(@swim_lesson) %> |
+<%= link_to 'Back', swim_lessons_path %>

@@ -1,0 +1,78 @@
+<%= form_for([:admin, @sport_module], :html => {:class => "form-horizontal"})  do |f| %>
+  <% if @sport_module.errors.any? %>
+      <div class="alert alert-danger" role="alert">
+        <h3><%= t('validation_error_message_1') + pluralize(@sport_module.errors.count, t('validation_error_message_2')) + t('validation_error_message_3') %></h3>
+
+        <ul>
+          <% @sport_module.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= f.label t('sport_module_form_code'), :class => "col-sm-3 control-label" %>
+    <div class="col-sm-6">
+      <%= f.text_field :code, :class => "form-control" %>
+    </div>
+  </div>
+  <div class="field form-group">
+    <%= f.label t('sport_module_form_place'), :class => "col-sm-3 control-label" %>
+    <div class="col-sm-6">
+      <%= f.select :place_id, options_for_select(@places.map{|p|[p.alias, p.id]}, @sport_module.place_id),{}, {:class => "form-control select", 'data-style' => "btn-primary"} %>
+    </div>
+  </div>
+  <div class="field form-group">
+    <%= f.label t('sport_module_form_activity'), :class => "col-sm-3 control-label" %>
+    <div class="col-sm-6">
+      <%= f.select :activity, options_for_select([[t('sport_module_form_activity_breakdance'),'BREAKDANCE'], [t('sport_module_form_activity_football'),'FOOTBALL'], [t('sport_module_form_activity_tennis'), 'TENNIS'], [t('sport_module_form_activity_multisports'), 'MULTISPORTS'], [t('sport_module_form_activity_zumba'), 'ZUMBA']], @sport_module.activity),{}, {:class => "form-control select", 'data-style' => "btn-primary"} %>
+    </div>
+  </div>
+  <div class="field form-group">
+    <%= f.label t('sport_module_form_coach'), :class => "col-sm-3 control-label" %>
+    <div class="col-sm-6">
+      <%= f.select :coach_id, options_for_select(@coaches.all.map{|c|[c.firstName + ' ' + c.lastName, c.id]}, @sport_module.coach_id),{}, {:class => "form-control select", 'data-style' => "btn-primary"} %>
+    </div>
+  </div>
+  <div class="field form-group">
+    <%= f.label t('sport_module_form_day'), :class => "col-sm-3 control-label" %>
+    <div class="col-sm-6">
+      <%= f.select :day, options_for_select(t("date.day_names").each_with_index.map{|d, index|[d,index]}, @sport_module.day),{}, {:class => "form-control select", 'data-style' => "btn-primary"} %>
+    </div>
+  </div>
+    <div class="field form-group">
+      <%= f.label t('sport_module_form_start_time'), :class => "col-sm-3 control-label" %>
+      <div class="col-sm-6 input-group">
+        <%= f.text_field :startTime, value: @sport_module.startTime.blank? ? @sport_module.startTime_before_type_cast : l(@sport_module.startTime),  :class => "form-control" %>
+        <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+      </div>
+    </div>
+    <div class="field form-group">
+      <%= f.label t('sport_module_form_end_time'), :class => "col-sm-3 control-label" %>
+      <div class="col-sm-6 input-group">
+        <%= f.text_field :endTime, value: @sport_module.endTime.blank? ? @sport_module.endTime_before_type_cast : l(@sport_module.endTime), :class => "form-control" %>
+        <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+      </div>
+    </div>
+  <div class="field form-group">
+    <%= f.label t('sport_module_form_subscriptions'), :class => "col-sm-3 control-label" %>
+    <div class="col-sm-6">
+      <%= f.number_field :maxSubscriptions, :class => "form-control" %>
+    </div>
+  </div>
+  <div class="field form-group">
+    <%= f.label t('sport_module_form_meeting_place'), :class => "col-sm-3 control-label" %>
+    <div class="col-sm-6">
+      <%= f.text_field :meetingPlace, :class => "form-control" %>
+    </div>
+  </div>
+  <div class="actions form-group" >
+    <%= link_to admin_sport_modules_path, :class => "btn btn-primary col-sm-offset-3" do %>
+        <i class="glyphicon glyphicon-chevron-left"></i> <%= t('button_back') %>
+    <% end %>
+    <%= button_tag(type: 'submit', class: "btn btn-primary col-sm-offset-4") do %>
+        <%= (controller.action_name=="new" or controller.action_name=="create") ? t('button_add') :  t('button_edit') %> <i class="glyphicon glyphicon-ok"></i>
+    <% end %>
+  </div>
+<% end %>

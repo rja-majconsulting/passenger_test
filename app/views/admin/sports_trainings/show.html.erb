@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @sports_training.code %>
+</p>
+
+<p>
+  <strong>Place:</strong>
+  <%= @sports_training.place %>
+</p>
+
+<p>
+  <strong>Startdate:</strong>
+  <%= @sports_training.startDate %>
+</p>
+
+<p>
+  <strong>Enddate:</strong>
+  <%= @sports_training.endDate %>
+</p>
+
+<p>
+  <strong>Starttime:</strong>
+  <%= @sports_training.startTime %>
+</p>
+
+<p>
+  <strong>Endtime:</strong>
+  <%= @sports_training.endTime %>
+</p>
+
+<p>
+  <strong>Halfdayprice:</strong>
+  <%= @sports_training.halfDayPrice %>
+</p>
+
+<p>
+  <strong>Fulldayprice:</strong>
+  <%= @sports_training.fullDayPrice %>
+</p>
+
+<p>
+  <strong>Morningnursery:</strong>
+  <%= @sports_training.morningNursery %>
+</p>
+
+<p>
+  <strong>Afternoonnursery:</strong>
+  <%= @sports_training.afternoonNursery %>
+</p>
+
+<%= link_to 'Edit', edit_sports_training_path(@sports_training) %> |
+<%= link_to 'Back', sports_trainings_path %>

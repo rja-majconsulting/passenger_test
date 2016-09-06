@@ -1,0 +1,63 @@
+<div class="content" style="background-color:#8dc63f">
+  <h3><b>Notre équipe jeune et dynamique acceuille vos enfants (dès 3 ans) pour nos Stages Sportifs</b></h3>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <h3>Activités possibles ?</h3>
+        <ul>
+          <li><b>> Breakdance</b></li>
+          <li><b>> Découvertes sportives</b>, la formule idéale pour découvrir de nouveaux sports !</li>
+          <li><b>> Psychomotricité</b>, aventures à thème, circo-motricité, circuits ludiques, bricolage, etc.</li>
+          <li><b>> Capoeira</b></li>
+          <li><b>> Zumba</b></li>
+          <li><b>> Mini-foot</b></li>
+          <li><b>> Escalade</b>, dès 7ans</li>
+          <li><b>> Mini-foot</b>, pour apprendre à rouler à deux roues</li>
+          <li><b>> Vélo</b>, dès 5ans</li>
+          <li><b>> Natation</b>, uniquement à Charleroi Hélios</li>
+        </ul>
+
+        <h3>Quand ?</h3>
+        Durant les semaines de :
+        <ul>
+          <li><b>> Carnaval</b></li>
+          <li><b>> Paques</b></li>
+          <li><b>> Juillet</b></li>
+          <li><b>> Aout</b></li>
+        </ul>
+
+      </div>
+
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <h3>Où ?</h3>
+        <ul>
+          <li>- Farciennes, hall des sports</li>
+          <li>- La Louviere, institut Ste Marie</li>
+          <li>- Luttre, hall des sports</li>
+          <li>- Charleroi, école Bosquetville et piscine Hélios</li>
+          <li>- Jambes, Athénée Royal</li>
+        </ul>
+        <h3>Prix ?</h3>
+        <ul>
+          <li>- 49€ en 5 demi-journées</li>
+          <li>- 69€ en 5 journées complètes</li>
+          <li>- 89€ en 5 journées complètes avec Natation</li>
+          <li>- 59€ en 5 demi-journées avec Natation</li>
+        </ul>   <br><br>
+      </div>
+
+    </div>
+
+  </div>
+
+  <h3><%= link_to "Plus d'infos ? Cliquez ICI", '/Stages_sportifs_2016.pdf', :target => '_blank' %></h3>
+
+  <ul>
+    <li>
+      <%= link_to public_registration_path, :target => '_parent'  do %>
+          <input type="button" value="<%= t('menu_registration')%>" class="button_inscription"/>
+      <% end %>
+    </li>
+  </ul>
+
+</div>

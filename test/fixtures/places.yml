@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  alias: Piscine Farciennes
+  street: Rue de la natation, 101
+  city: Farciennes
+  postalCode: 6200
+

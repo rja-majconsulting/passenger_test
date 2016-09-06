@@ -1,0 +1,41 @@
+<div class="content">
+
+  <% if !notice.blank? %>
+    <div class="alert alert-success" role="alert"><%= notice %></div>
+  <% end %>
+
+  <h1><%= t('activity_index_title') %></h1>
+
+  <table class="table">
+    <%= link_to new_admin_activity_path, class: 'col-md-offset-9' do %>
+        <span class="glyphicon glyphicon-plus"></span>
+    <% end %>
+    <thead>
+      <tr>
+        <th><%= t('activity_table_name') %></th>
+        <th><%= t('activity_table_material') %></th>
+        <th><%= t('activity_table_subscriptions') %></th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @activities.each do |activity| %>
+        <tr>
+          <td class="col-md-2"><%= activity.name %></td>
+          <td class="col-md-4"><%= activity.material %></td>
+          <td class="col-md-2"><%= activity.maxSubscriptions %></td>
+          <td>
+            <%= link_to edit_admin_activity_path(activity), class: 'btn btn-primary btn-sm' do %>
+                <span class="glyphicon glyphicon-edit"></span>
+            <% end %>
+            &nbsp;&nbsp;
+            <%= link_to admin_activity_path(activity.id), method: :delete, data: { confirm: t('activity_destroy_confirmation_message') }, class:'btn btn-danger btn-sm' do %>
+                <span class="glyphicon glyphicon-remove"></span>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

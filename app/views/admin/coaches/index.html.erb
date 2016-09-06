@@ -1,0 +1,47 @@
+<div class="content">
+
+  <% if !notice.blank? %>
+      <div class="alert alert-success" role="alert"><%= notice %></div>
+  <% end %>
+
+  <h1><%= t('coach_index_title') %></h1>
+
+  <table class="table">
+    <%= link_to new_admin_coach_path, class: 'col-md-offset-9' do %>
+        <span class="glyphicon glyphicon-plus"></span>
+    <% end %>
+    <thead>
+      <tr>
+        <th><%= t('coach_form_lastName') %></th>
+        <th><%= t('coach_form_firstName') %></th>
+        <th><%= t('coach_form_telefonNumber') %></th>
+        <th><%= t('coach_form_email') %></th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @coaches.each do |coach| %>
+        <tr>
+          <td><%= coach.lastName %></td>
+          <td><%= coach.firstName %></td>
+          <td><%= coach.telefonNumber %></td>
+          <td><%= coach.email %></td>
+          <td>
+            <%= link_to edit_admin_coach_path(coach), class: 'btn btn-primary btn-sm' do %>
+                <span class="glyphicon glyphicon-edit"></span>
+            <% end %>
+            &nbsp;&nbsp;
+            <%= link_to export_admin_coach_path(coach, format: 'xlsx'), class: 'btn btn-success btn-sm' do %>
+                <span class="glyphicon glyphicon-export"></span>
+            <% end %>
+            &nbsp;&nbsp;
+            <%= link_to admin_coach_path(coach.id), method: :delete, data: { confirm: t('coach_destroy_confirmation_message') }, class:'btn btn-danger btn-sm' do %>
+                <span class="glyphicon glyphicon-remove"></span>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

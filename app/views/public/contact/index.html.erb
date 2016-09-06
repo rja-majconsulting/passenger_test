@@ -1,0 +1,68 @@
+<h1>Nous contacter ?</h1><br>
+<span class="glyphicon glyphicon-home"></span> Rue de la Sarte, 38 - 6200 Châtelet<br><br>
+<span class="glyphicon glyphicon-earphone"></span> 0472/224658<br><br>
+<span class="glyphicon glyphicon-envelope"></span>
+<a href="mailto:vivasport@live.be" target="_top">vivasport@live.be</a><br><br>
+
+<span class="glyphicon glyphicon-pencil"></span> Via ce formulaire : <br><br>
+<div class="alert alert-success" id="feedbackOK" hidden="true"></div>
+
+<div class="alert alert-danger" id="feedbackKO" hidden="true"></div>
+
+
+<%= render 'form' %>
+
+
+<script type="text/javascript">
+
+  $(document).ready(function () {
+
+    $('#contactForm').validate({
+      rules: {
+
+        inputName: {
+          required: true,
+          minlength: 2
+        },
+
+        inputFirstName: {
+          required: true,
+          minlength: 2
+        },
+
+        inputEmail: {
+          required: true,
+          email: true
+        },
+
+        inputMessage: {
+          required: true
+        }
+
+      },
+      highlight: function (element) {
+        $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+      },
+      success: function (element) {
+        element.closest('.form-group').removeClass('has-error').addClass('has-success');
+      }
+    });
+
+
+    $("#btnSend").click(function () {
+      if ($("#contactForm").valid()) {
+        var contact = {
+          domain: 'vivasport.be',
+          name: $('#inputName').val(),
+          firstName: $('#inputFirstName').val(),
+          mail: $('#inputEmail').val(),
+          destination: 'vivasport@live.be',
+          message: $('#inputMessage').val().replace(/\n/g, "<br>")
+        };
+        post('/app/base/contact/', contact, 'index.html');
+
+
+      }
+    });
+  });
+</script>

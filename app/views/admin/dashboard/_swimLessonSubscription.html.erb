@@ -1,0 +1,37 @@
+<% if subscriptions %>
+  <div class="panel panel-primary">
+    <div class="panel-heading">Inscriptions cours de natation</div>
+    <div class="panel-body">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Prénom</th>
+          <th>Module</th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% subscriptions.each do |subscription| %>
+            <tr>
+              <td><%= subscription.lastName %></td>
+              <td><%= subscription.firstName %></td>
+              <td><%= subscription.swim_lesson.code %></td>
+              <td><%= subscription.level.name %></td>
+              <td><%= subscription.place.alias %></td>
+              <td>
+                <%= link_to edit_admin_swim_lesson_subscription_path(subscription), class: 'btn btn-primary btn-sm' do %>
+                    <span class="glyphicon glyphicon-edit"></span>
+                <% end %>
+                &nbsp;&nbsp;
+                <%= link_to admin_swim_lesson_subscription_path(subscription.id), method: :delete, data: { confirm: t('subscription_destroy_confirmation_message') }, class:'btn btn-danger btn-sm' do %>
+                    <span class="glyphicon glyphicon-remove"></span>
+                <% end %>
+              </td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<% end %>

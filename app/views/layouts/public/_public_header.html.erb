@@ -1,0 +1,42 @@
+<div class="row header">
+  <div class="span3 logo header_left">
+    <%= image_tag 'logo.png' %>
+  </div>
+
+  <div class="span6 header_right hidden-xs hidden-sm">
+    <ul id="tabnav">
+      <li id="menu_accueil"><%= link_to t('menu_welcome'), public_root_path %></li>
+      <li><%= image_tag 'menu_separator.png' %></li>
+      <li id="menu_remboursement"><%= link_to t('menu_refund'), public_refund_path %></li>
+      <li><%= image_tag 'menu_separator.png' %></li>
+      <li id="menu_photos"><%= link_to t('menu_photo'), public_photos_path %></li>
+      <li><%= image_tag 'menu_separator.png' %></li>
+      <li id="menu_contact"><%= link_to t('menu_contact'), public_contact_path %></li>
+    </ul>
+
+  </div>
+
+  <div class="row">
+    <div class="span12">
+      <ul class="bxslider">
+        <li><%= image_tag 'pub_ecole.png' %></li>
+        <li><%= image_tag 'pub_anniversaire.png' %></li>
+        <li><%= image_tag 'pub_natation.png' %></li>
+        <li><%= image_tag 'pub_stage.png' %></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div id="links">
+    <ul>
+      <li>
+        <%= link_to public_registration_path  do %>
+          <input type="button" value="<%= t('menu_registration')%>" class="button_inscription"/>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+
+
+</div>

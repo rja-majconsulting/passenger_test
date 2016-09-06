@@ -1,0 +1,21 @@
+wb = xlsx_package.workbook
+    wb.styles do |style|
+        title_row = style.add_style(:bg_color => "9E9B96", :border => Axlsx::STYLE_THIN_BORDER, :alignment => { horizontal: :center }, :b => 1)
+        header_row = style.add_style(:bg_color => "EFC376", :border => Axlsx::STYLE_THIN_BORDER, :alignment => { horizontal: :center }, :b => 1)
+        table_row = style.add_style(alignment: { horizontal: :center })
+
+    wb.add_worksheet(name: t('subscription_doc_swimming')) do |sheet|
+        sheet.add_row getSwimLessonTitle(), :height => 40, :style => title_row
+        sheet.merge_cells sheet.rows.last.cells[(0..8)]
+        sheet.add_row getHeaderRow(), :height => 30, :style => header_row
+
+    end
+
+    wb.add_worksheet(name: t('subscription_doc_module')) do |sheet|
+        sheet.add_row getModuleTitle(), :height => 40, :style => title_row
+        sheet.merge_cells sheet.rows.last.cells[(0..8)]
+        sheet.add_row getHeaderRow(), :height => 30, :style => header_row
+
+    end
+
+end

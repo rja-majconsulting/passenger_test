@@ -1,0 +1,46 @@
+<%= form_for([:admin, @coach], :html => {:class => 'form-horizontal'})  do |f| %>
+  <% if @coach.errors.any? %>
+      <div class="alert alert-danger" role="alert">
+        <h3><%= t('validation_error_message_1') + pluralize(@coach.errors.count, t('validation_error_message_2')) + t('validation_error_message_3') %></h3>
+
+        <ul>
+          <% @coach.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= f.label t('coach_form_lastName'), :class => 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :lastName, :class => 'form-control' %>
+    </div>
+  </div>
+  <div class="field form-group">
+    <%= f.label t('coach_form_firstName'), :class => 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :firstName, :class => 'form-control' %>
+    </div>
+  </div>
+  <div class="field form-group">
+    <%= f.label t('coach_form_telefonNumber'), :class => 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :telefonNumber, :class => 'form-control' %>
+    </div>
+  </div>
+  <div class="field form-group">
+    <%= f.label t('coach_form_email'), :class => 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :email, :class => 'form-control' %>
+    </div>
+  </div>
+  <div class="actions form-group" >
+    <%= link_to admin_coaches_path, :class => 'btn btn-primary col-sm-offset-3' do %>
+        <i class="glyphicon glyphicon-chevron-left"></i> <%= t('button_back') %>
+    <% end %>
+    <%= button_tag(type: 'submit', class: 'btn btn-primary col-sm-offset-4') do %>
+        <%= (controller.action_name=='new' or controller.action_name=='create') ? t('button_add') :  t('button_edit') %> <i class="glyphicon glyphicon-ok"></i>
+    <% end %>
+  </div>
+<% end %>

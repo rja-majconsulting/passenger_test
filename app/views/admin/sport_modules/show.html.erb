@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @sport_module.code %>
+</p>
+
+<p>
+  <strong>Place:</strong>
+  <%= @sport_module.place %>
+</p>
+
+<p>
+  <strong>Activity:</strong>
+  <%= @sport_module.activity %>
+</p>
+
+<p>
+  <strong>Coach:</strong>
+  <%= @sport_module.coach %>
+</p>
+
+<p>
+  <strong>Day:</strong>
+  <%= @sport_module.day %>
+</p>
+
+<p>
+  <strong>Starttime:</strong>
+  <%= @sport_module.startTime %>
+</p>
+
+<p>
+  <strong>Endtime:</strong>
+  <%= @sport_module.endTime %>
+</p>
+
+<p>
+  <strong>Maxsubscriptions:</strong>
+  <%= @sport_module.maxSubscriptions %>
+</p>
+
+<p>
+  <strong>Meetingplace:</strong>
+  <%= @sport_module.meetingPlace %>
+</p>
+
+<%= link_to 'Edit', edit_sport_module_path(@sport_module) %> |
+<%= link_to 'Back', sport_modules_path %>

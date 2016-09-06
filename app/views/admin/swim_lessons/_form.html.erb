@@ -1,0 +1,78 @@
+<%= form_for([:admin, @swim_lesson], :html => {:class => "form-horizontal"})  do |f| %>
+  <% if @swim_lesson.errors.any? %>
+      <div class="alert alert-danger" role="alert">
+        <h3><%= t('validation_error_message_1') + pluralize(@swim_lesson.errors.count, t('validation_error_message_2')) + t('validation_error_message_3') %></h3>
+
+        <ul>
+          <% @swim_lesson.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= f.label t('swim_lesson_form_code'), :class => "col-sm-3 control-label" %>
+    <div class="col-sm-6">
+      <%= f.text_field :code, :class => "form-control" %>
+    </div>
+  </div>
+  <div class="field form-group">
+    <%= f.label t('swim_lesson_form_category'), :class => "col-sm-3 control-label" %>
+    <div class="col-sm-6">
+      <%= f.text_field :category, :class => "form-control" %>
+    </div>
+  </div>
+  <div class="field form-group">
+    <%= f.label t('swim_lesson_form_place'), :class => "col-sm-3 control-label" %>
+    <div class="col-sm-6">
+      <%= f.select :place_id, options_for_select(@places.map{|p|[p.alias, p.id]}, @swim_lesson.place_id),{}, {:class => "form-control select", 'data-style' => "btn-primary"} %>
+    </div>
+  </div>
+  <div class="field form-group">
+    <%= f.label t('swim_lesson_form_level'), :class => "col-sm-3 control-label" %>
+    <div class="col-sm-6">
+      <%= f.select :level_id, options_for_select(@levels.map{|l|[l.name, l.id]}, @swim_lesson.level_id),{}, {:class => "form-control select", 'data-style' => "btn-primary"} %>
+    </div>
+  </div>
+  <div class="field form-group">
+    <%= f.label t('swim_lesson_form_coach'), :class => "col-sm-3 control-label" %>
+    <div class="col-sm-6">
+      <%= f.select :coach_id, options_for_select(@coaches.map{|c|[c.firstName + ' ' + c.lastName, c.id]}, @swim_lesson.coach_id),{}, {:class => "form-control select", 'data-style' => "btn-primary"} %>
+    </div>
+  </div>
+  <div class="field form-group">
+    <%= f.label t('swim_lesson_form_day'), :class => "col-sm-3 control-label" %>
+    <div class="col-sm-6">
+      <%= f.select :day, options_for_select(t("date.day_names").each_with_index.map{|d, index|[d,index]}, @swim_lesson.day),{}, {:class => "form-control select", 'data-style' => "btn-primary"} %>
+    </div>
+  </div>
+  <div class="field form-group">
+    <%= f.label t('swim_lesson_form_start_time'), :class => "col-sm-3 control-label" %>
+    <div class="col-sm-6 input-group">
+      <%= f.text_field :startTime, value: @swim_lesson.startTime.blank? ? @swim_lesson.startTime_before_type_cast : l(@swim_lesson.startTime),  :class => "form-control" %>
+      <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+    </div>
+  </div>
+  <div class="field form-group">
+    <%= f.label t('swim_lesson_form_end_time'), :class => "col-sm-3 control-label" %>
+    <div class="col-sm-6 input-group">
+      <%= f.text_field :endTime, value: @swim_lesson.endTime.blank? ? @swim_lesson.endTime_before_type_cast : l(@swim_lesson.endTime), :class => "form-control" %>
+      <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+    </div>
+  </div>
+  <div class="field form-group">
+    <%= f.label t('swim_lesson_form_subscriptions'), :class => "col-sm-3 control-label" %>
+    <div class="col-sm-6">
+      <%= f.number_field :maxSubscriptions, :class => "form-control" %>
+    </div>
+  </div>
+  <div class="actions form-group" >
+    <%= link_to admin_swim_lessons_path, :class => "btn btn-primary col-sm-offset-3" do %>
+        <i class="glyphicon glyphicon-chevron-left"></i> <%= t('button_back') %>
+    <% end %>
+    <%= button_tag(type: 'submit', class: "btn btn-primary col-sm-offset-4") do %>
+        <%= (controller.action_name=="new" or controller.action_name=="create") ? t('button_add') :  t('button_edit') %> <i class="glyphicon glyphicon-ok"></i>
+    <% end %>
+  </div>
+<% end %>

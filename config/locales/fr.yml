@@ -1,0 +1,827 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+fr:
+
+  #Common
+  date: #Throws an exception otherwise.
+      order: ["day", "month", "year"]
+      month_names : ["Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Aoüt","Septembre","Octobre","Novembre","Décembre"]
+      day_names: ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"]
+      datepicker:
+        default: "%d-%m-%Y"
+      formats:
+        default: "%d-%m-%Y"
+  time:
+      formats:
+        default: "%H:%M"
+
+  button_add: "Ajouter"
+  button_edit: "Modifier"
+  button_back: "Retour"
+  button_send: "Envoyer"
+  button_search: "Rechercher"
+  validation_error_message_1: "Il y a "
+  validation_error_message_2: "erreur"
+  validation_error_message_3: " dans votre formulaire"
+  from: " du "
+  to: " au "
+  validation_required: "Ce champs est obligatoire."
+  validation_required_min_length: "Ce champs est obligatoire et doit contenir au moins %{nb} caractères."
+  validation_required_length: "Ce champs est obligatoire et doit contenir %{nb} caractères."
+  validation_format: "Ce champs est obligatoire et doit respecter le format suivant : %{date_format}."
+  validation_email: "Ce champs est obligatoire et doit contenir une adresse email valide."
+
+
+  #Menu
+  menu_management: "Gestion"
+  menu_activity: "Activité"
+  menu_place: "Lieu"
+  menu_level: "Niveau"
+  menu_coach: "Moniteur"
+  menu_sport_training: "Stage"
+  menu_swim_lesson: "Cours de natation"
+  menu_sport_module: "Module extra-scolaire"
+  menu_sport_day: "Journée pédagogique"
+  menu_logout: "Déconnexion"
+  menu_subscription: "Inscription"
+  logout_confirmation_message: "Êtes-vous sur de vouloir vous déconnecter ?"
+  menu_welcome: "ACCUEIL"
+  menu_refund: "REMBOURSEMENT"
+  menu_photo: "PHOTOS"
+  menu_contact: "CONTACT"
+  menu_registration: "INSCRIPTION"
+
+  #connexion
+  connexion_log_in: "S'authentifier"
+  connexion_email: "Adresse email"
+  connexion_password: "Mot de passe"
+  connexion_password_confirmation: "Confirmation du mot de passe"
+  connexion_remember: "Se souvenir de moi"
+  connexion_connect: "Connexion"
+  connexion_sign_up: "S'enregistrer"
+  connexion_forgot_password: "Mot de passe oublié ?"
+  connexion_not_receive_confirmation_instructions: "Vous n'avez pas reçu les instructions de confirmations ?"
+  connexion_not_receive_unlock_instructions: "Vous n'avez pas reçu les instructions pour débloquer ?"
+  connexion_send_reset_password_instructions: "Réinitialiser mon mot de passe"
+  connexion_change_password_title: "Modifier mon mot de passe"
+
+  #Dashboard
+  dashboard_search_name: "Nom de l'enfant"
+  dashboard_search_firstname: "Prénom de l'enfant"
+
+  #Activity
+  activity_index_title: "Gérer les activités"
+  activity_table_name: "Nom"
+  activity_table_material: "Matériel requis"
+  activity_table_subscriptions: "Nombre max d'inscription"
+  activity_edit_title: "Modifier une activité"
+  activity_new_title: "Ajouter une activité"
+  activity_form_name: "Nom"
+  activity_form_material: "Matériel requis"
+  activity_form_subscriptions: "Nombre maximum d'inscription"
+  activity_new_success_message: "L'activité a été correctement ajoutée"
+  activity_edit_success_message: "L'activité a été correctement modifiée"
+  activity_destroy_success_message: "L'activité a été correctement supprimée"
+  activity_destroy_confirmation_message: "Êtes-vous sur de vouloir supprimer cette activité ?"
+
+
+  #place
+  place_index_title: "Gérer les lieux"
+  place_table_alias: "Alias"
+  place_table_street: "Rue"
+  place_table_city: "Ville"
+  place_table_postal_code: "Code postal"
+  place_edit_title: "Modifier un lieu"
+  place_new_title: "Ajouter un lieu"
+  place_form_alias: "Alias"
+  place_form_street: "Rue"
+  place_form_city: "Ville"
+  place_form_postal_code: "Code postal"
+  place_new_success_message: "Le lieu a été correctement ajouté"
+  place_edit_success_message: "Le lieu a été correctement modifié"
+  place_destroy_success_message: "Le lieu a été correctement supprimé"
+  place_destroy_confirmation_message: "Êtes-vous sur de vouloir supprimer ce lieu ?"
+
+  #level
+  level_index_title: "Gérer les niveaux"
+  level_table_name: "Nom"
+  level_edit_title: "Modifier un niveau"
+  level_new_title: "Ajouter un niveau"
+  level_form_name: "Nom"
+  level_new_success_message: "Le niveau a été correctement ajouté"
+  level_edit_success_message: "Le niveau a été correctement modifié"
+  level_destroy_success_message: "Le niveau a été correctement supprimé"
+  level_destroy_confirmation_message: "Êtes-vous sur de vouloir supprimer ce niveau ?"
+
+  #coach
+  coach_index_title: "Gérer les moniteurs"
+  coach_table_lastName: "Nom"
+  coach_table_firstName: "Prénom"
+  coach_table_telefonNumber: "Téléphone"
+  coach_table_email: "Email"
+  coach_edit_title: "Modifier un moniteur"
+  coach_new_title: "Ajouter un moniteur"
+  coach_form_lastName: "Nom"
+  coach_form_firstName: "Prénom"
+  coach_form_telefonNumber: "Téléphone"
+  coach_form_email: "Email"
+  coach_new_success_message: "Le moniteur a été correctement ajouté"
+  coach_edit_success_message: "Le moniteur a été correctement modifié"
+  coach_destroy_success_message: "Le moniteur a été correctement supprimé"
+  coach_destroy_confirmation_message: "Êtes-vous sur de vouloir supprimer ce moniteur ?"
+
+  #swim_lesson
+  swim_lesson_index_title: "Gérer les groupes de natation"
+  swim_lesson_table_code: "Code"
+  swim_lesson_table_place: "Lieu"
+  swim_lesson_table_level: "Niveau"
+  swim_lesson_table_coach: "Moniteur"
+  swim_lesson_table_subscriptions: "Max inscris"
+  swim_lesson_table_start_time: "Heure début"
+  swim_lesson_table_end_time: "Heure fin"
+  swim_lesson_edit_title: "Modifier un groupe"
+  swim_lesson_new_title: "Ajouter un groupe"
+  swim_lesson_form_code: "Code"
+  swim_lesson_form_category: "Catégorie"
+  swim_lesson_form_place: "Lieu"
+  swim_lesson_form_level: "Niveau"
+  swim_lesson_form_coach: "Moniteur"
+  swim_lesson_form_day: "Journée"
+  swim_lesson_form_subscriptions: "Nombre Maximum d'inscrisption"
+  swim_lesson_form_start_time: "Heure de début"
+  swim_lesson_form_end_time: "Heure de fin"
+  swim_lesson_new_success_message: "Le groupe a été correctement ajouté"
+  swim_lesson_edit_success_message: "Le groupe a été correctement modifié"
+  swim_lesson_destroy_success_message: "Le groupe a été correctement supprimé"
+  swim_lesson_destroy_confirmation_message: "Êtes-vous sur de vouloir supprimer ce groupe ?"
+
+  #sport_module
+  sport_module_index_title: "Gérer les modules extra-sportifs"
+  sport_module_table_place: "Lieu"
+  sport_module_table_activity: "Activité"
+  sport_module_table_coach: "Moniteur"
+  sport_module_table_day: "Jour"
+  sport_module_table_start_time: "Heure début"
+  sport_module_table_end_time: "Heure fin"
+  sport_module_edit_title: "Modifier un module"
+  sport_module_new_title: "Ajouter un module"
+  sport_module_form_code: "Code"
+  sport_module_form_place: "Lieu"
+  sport_module_form_activity: "Activité"
+  sport_module_form_coach: "Moniteur"
+  sport_module_form_day: "Journée"
+  sport_module_form_meeting_place: "Lieu de rendez-vous"
+  sport_module_form_start_time: "Heure de début"
+  sport_module_form_end_time: "Heure de fin"
+  sport_module_form_subscriptions: "Nombre Maximum d'inscriptions"
+  sport_module_form_activity_breakdance: "Breakdance"
+  sport_module_form_activity_tennis: "Mini-tennis"
+  sport_module_form_activity_football: "Mini-foot"
+  sport_module_form_activity_zumba: "Zumba"
+  sport_module_form_activity_multisports: "Multisports"
+  sport_module_new_success_message: "Le module a été correctement ajouté"
+  sport_module_edit_success_message: "Le module a été correctement modifié"
+  sport_module_destroy_success_message: "Le module a été correctement supprimé"
+  sport_module_destroy_confirmation_message: "Êtes-vous sur de vouloir supprimer ce module ?"
+
+  #sport_day
+  sport_day_index_title: "Gérer les journées pédagogiques"
+  sport_day_table_place: "Lieu"
+  sport_day_table_date: "Date"
+  sport_day_edit_title: "Modifier une journée pédagogique"
+  sport_day_new_title: "Ajouter une journée pédagogique"
+  sport_day_form_code: "Code"
+  sport_day_form_place: "Lieu"
+  sport_day_form_price: "Prix de la journée"
+  sport_day_form_meeting_morning: "Accueil matin"
+  sport_day_form_meeting_afternoon: "Accueil après-midi"
+  sport_day_form_payment_date: "Date limite de paiement"
+  sport_day_form_start_time: "Heure de début"
+  sport_day_form_end_time: "Heure de fin"
+  sport_day_form_date: "Date de la journée"
+  sport_day_new_success_message: "La journée pédagogique a été correctement ajoutée"
+  sport_day_edit_success_message: "La journée pédagogique a été correctement modifiée"
+  sport_day_destroy_success_message: "La journée pédagogique a été correctement supprimée"
+  sport_day_destroy_confirmation_message: "Êtes-vous sur de vouloir supprimer cette journée pédagogique ?"
+
+  #sports_training
+  sports_training_index_title: "Gérer les stages"
+  sports_training_table_place: "Lieu"
+  sports_training_table_start_date: "Date de début"
+  sports_training_table_end_date: "Date de fin"
+  sports_training_edit_title: "Modifier un stage"
+  sports_training_new_title: "Ajouter un stage"
+  sports_training_form_code: "Code"
+  sports_training_form_place: "Lieu"
+  sports_training_form_price: "Prix journée complète"
+  sports_training_form_half_price: "Prix demi journée"
+  sports_training_form_nursery_morning: "Lieu de garderie matin"
+  sports_training_form_nursery_afternoon: "Lieu de garderie après-midi"
+  sports_training_form_start_time: "Heure de début"
+  sports_training_form_end_time: "Heure de fin"
+  sports_training_form_start_date: "Date de début de stage"
+  sports_training_form_morning_activities: "Activités matin"
+  sports_training_form_afternoon_activities: "Activités après-midi"
+  sports_training_form_end_date: "Date de fin de stage"
+  sports_training_form_activity_choice: "Choix de l'activité"
+  sports_training_form_place_choice: "Choix du lieu"
+  sports_training_new_success_message: "Le stage a été correctement ajouté"
+  sports_training_edit_success_message: "Le stage a été correctement modifié"
+  sports_training_destroy_success_message: "Le stage a été correctement supprimé"
+  sports_training_destroy_confirmation_message: "Êtes-vous sur de vouloir supprimer ce stage ?"
+
+
+  #subscription
+  subscription_form_lastName: "Nom"
+  subscription_form_firstName: "Prénom"
+  subscription_form_birthDate: "Date de naissance"
+  subscription_form_street: "Rue"
+  subscription_form_city: "Ville"
+  subscription_form_postal_code: "Code postal"
+  subscription_form_telefon_number: "Numéro de téléphone"
+  subscription_form_email: "Email"
+  subscription_form_lastName_placeholder: "Nom"
+  subscription_form_firstName_placeholder: "Prénom"
+  subscription_form_birthDate_placeholder: "Date de naissance (jj/mm/aaaa)"
+  subscription_form_street_placeholder: "Rue, n°"
+  subscription_form_city_placeholder: "Ville"
+  subscription_form_postal_code_placeholder: "Code postal"
+  subscription_form_telefon_number_placeholder: "Téléphone"
+  subscription_form_email_placeholder: "Email"
+  subscription_form_type: "Formule"
+  subscription_form_type_swim_lesson: "Natation enfant"
+  subscription_form_type_birthday: "Anniversaire"
+  subscription_form_type_sports_training: "Stages sportifs"
+  subscription_form_type_adult_swim_lesson: "Natation adulte"
+  subscription_form_type_sport_module: "Modules extra-scolaire"
+  subscription_form_type_sports_day: "Journée pédagogique"
+  subscription_form_birthday_type: "Formule souhaitée"
+  subscription_form_place: "Lieu"
+  subscription_form_date: "Date"
+  subscription_form_activity: "Activité"
+  subscription_form_schedule: "Horaire"
+  subscription_form_level: "Niveau"
+  subscription_form_afternoon_activity: "Activité après-midi"
+  subscription_form_morning_activity: "Activité matin"
+  subscription_new_success_message: "L'inscription a été correctement ajoutée"
+  subscription_edit_success_message: "L'inscription a été correctement modifiée"
+  subscription_destroy_success_message: "L'inscription a été correctement supprimée"
+  subscription_destroy_confirmation_message: "Êtes-vous sur de vouloir supprimer cette inscription ?"
+  subscription_edit_title: "Modifier une inscription"
+  subscription_new_title: "Ajouter une inscription"
+  public_subscription_new_success_message: "Votre inscription a bien été prise en compte. Un mail de confirmation a été envoyé à l'adresse %{email}."
+  subscription_email_confirmation_message: "Un mail de confirmation a été envoyé à l'adresse %{email}."
+
+
+  #contact
+  contact_form_lastName: "Nom"
+  contact_form_firstName: "Prénom"
+  contact_form_email: "Adresse mail"
+  contact_form_message: "Votre message"
+  contact_form_lastName_placeholder: "Nom"
+  contact_form_firstName_placeholder: "Prénom"
+  contact_form_email_placeholder: "Email"
+  contact_form_message_placeholder: "Inscrivez votre message ici"
+  contact_send_confirmation_message: "Votre message a été envoyé avec succès."
+  contact_send_subject: "Nouveau message de %{firstName} %{lastName}"
+
+
+  #subscription_export_xlsx
+  subscription_doc_lastName: "Nom"
+  subscription_doc_firstName: "Prénom"
+  subscription_doc_birthDate: "Date de naissance"
+  subscription_doc_street: "Rue"
+  subscription_doc_city: "Ville"
+  subscription_doc_postal_code: "Code postal"
+  subscription_doc_telefon_number: "Numéro de téléphone"
+  subscription_doc_email: "Email"
+  subscription_doc_due_date: "Date d'échéance"
+  subscription_doc_morning_activity: "Activité matin"
+  subscription_doc_afternoon_activity: "Activité après-midi"
+  subscription_doc_swimming: "Natation"
+  subscription_doc_module: "Module"
+
+
+
+  #sports_training_subscription
+  sports_training_subscription_index_title: "Gérer les inscriptions aux stages"
+  sports_training_subscription_form_morning_activity: "Activité du matin"
+  sports_training_subscription_form_afternoon_activity: "Activité de l'après-midi"
+  sports_training_subscription_form_stage: "Stage"
+  sports_training_subscription_table_morning_activity: "Activité du matin"
+  sports_training_subscription_table_afternoon_activity: "Activité de l'après-midi"
+  sports_training_subscription_table_stage: "Stage"
+  sports_training_subscription_table_lastName: "Nom"
+  sports_training_subscription_table_firstName: "Prénom"
+
+  #sports_day_subscription
+  sports_day_subscription_index_title: "Gérer les inscriptions aux journées pédagogiques"
+  sports_day_subscription_form_day: "Journée pédagogique"
+  sports_day_subscription_table_lastName: "Nom"
+  sports_day_subscription_table_firstName: "Prénom"
+
+  #sport_module_subscription
+  sport_module_subscription_index_title: "Gérer les inscriptions aux modules"
+  sport_module_subscription_form_module: "Module"
+  sport_module_subscription_table_lastName: "Nom"
+  sport_module_subscription_table_firstName: "Prénom"
+  sport_module_subscription_table_module: "Module"
+  sport_module_subscription_table_due_date: "Date d'échéance"
+  sport_module_subscription_table_waiting_payment: "En attente de paiement"
+  sport_module_subscription_table_unrenewed: "Non renouvelé"
+
+  #swim_lesson_subscription
+  swim_lesson_subscription_index_title: "Gérer les inscriptions aux cours de natation"
+  swim_lesson_subscription_form_lesson: "Groupe"
+  swim_lesson_subscription_table_lastName: "Nom"
+  swim_lesson_subscription_table_firstName: "Prénom"
+  swim_lesson_subscription_table_telefon_number: "Téléphone"
+  swim_lesson_subscription_table_place: "Lieu"
+  swim_lesson_subscription_table_level: "Niveau"
+  swim_lesson_subscription_table_birthDate: "Date de naissance"
+  swim_lesson_subscription_table_lesson: "Groupe"
+  swim_lesson_subscription_table_due_date: "Date d'échéance"
+  swim_lesson_subscription_table_waiting_payment: "En attente de paiement"
+  swim_lesson_subscription_table_waiting_availability: "En attente de disponibilité"
+  swim_lesson_subscription_table_unrenewed: "Non renouvelé"
+
+  #Email
+
+  swim_lesson_reminder_subject_individual: "Échéance de votre abonnement NATATION en cours particuliers"
+  swim_lesson_reminder_subject: "Échéance de votre abonnement NATATION"
+  sport_module_reminder_subject: "Échéance de votre abonnement > Module SPORTIF dans l'école de votre enfant"
+  sports_day_confirmation_subject: "[Journée pédagogique] Confirmation d'inscription pour %{lastName} %{firstName}"
+  sports_training_confirmation_subject: "[Stages] Confirmation d'inscription pour %{lastName} %{firstName}"
+  sport_module_confirmation_subject: "[Module] Confirmation d'inscription pour %{lastName} %{firstName}"
+  birthday_confirmation_subject: "[Anniversaire] Confirmation d'inscription pour %{lastName} %{firstName}"
+  adult_swim_lesson_confirmation_subject: "[Natation adulte] Confirmation d'inscription pour %{lastName} %{firstName}"
+  swim_lesson_confirmation_subject: "[Natation] Confirmation d'inscription pour %{lastName} %{firstName}"
+  change_password_greeting: "Bonjour"
+  change_password_confirmation: "Nous vous informons que votre mot de passe a été correctement modifié."
+  change_password_instructions_1: "Une demande de changement de mot de passe a été demandée. Vous pouvez l'effectuer via le lien ci-dessous."
+  change_password_instructions_2: "Si vous n'avez pas fait demande, veuillez ignorer cet email."
+  change_password_instructions_3: "Votre mot de passe ne sera pas modifié tant que vous n'en créez pas un nouveau via le lien ci-dessus."
+  change_password_link: "Modifier mon mot de passe"
+  change_password_signature: "L'équipe Vivasport."
+  change_password_confirmation_signature: "L'équipe Vivasport."
+
+  #Validations
+  activemodel:
+    attributes:
+      contact:
+        firstName: "Le prénom"
+        lastName: "Le nom"
+        email: "L'adresse email"
+        message: "Le message"
+  activerecord:
+    attributes:
+      activity:
+        name: "Le nom"
+        material : "Le matériel requis"
+        maxSubscriptions: "Le nombre maximum d'inscriptions"
+      place:
+        alias: "L'alias"
+        street: "La rue"
+        city: "La ville"
+        postalCode: "Le code postal"
+      level:
+        name: "Le nom"
+      coach:
+        lastName: "Le nom"
+        firstName: "Le prénom"
+        telefonNumber: "Le numéro de téléphone"
+        email: "L'adresse email"
+      sports_training:
+        code: "Le code"
+        morningNursery: "Le lieu de garderie du matin"
+        afternoonNursery: "Le lieu de garderie d'après-midi"
+        place: "Le lieu"
+        startDate: "La date de début"
+        endDate: "La date de fin"
+        startTime: "L'heure de début"
+        endTime: "L'heure de fin"
+        halfDayPrice: "Le prix en demi-journée"
+        fullDayPrice: "Le prix en journée complète"
+        morningActivities: "Les activités du matin"
+        afternoonActivities: "Les activités de l'après-midi"
+      swim_lesson:
+        code: "Le code"
+        category: "La catégorie"
+        startTime: "L'heure de début"
+        endTime: "L'heure de fin"
+        maxSubscriptions: "Le nombre maximum d'inscriptions"
+      sport_module:
+        code: "Le code"
+        meetingPlace: "Le lieu de rendez-vous"
+        startTime: "L'heure de début"
+        endTime: "L'heure de fin"
+        maxSubscriptions: "Le nombre maximum d'inscriptions"
+      sports_day:
+        code: "Le code"
+        morningPlace: "Le lieu d'accueil du matin"
+        afternoonPlace: "Le lieu d'accueil de l'après-midi"
+        startTime: "L'heure de début"
+        endTime: "L'heure de fin"
+        date: "La date de la journée"
+        paymentDate: "La date limite de paiement"
+        price: "Le prix de la journée"
+      subscription:
+        firstName: "Le prénom"
+        lastName: "Le nom"
+        birthDate: "La date de naissance"
+        street: "La rue"
+        city: "La ville"
+        postalCode: "Le code postal"
+        telefonNumber: "Le numéro de téléphone"
+        email: "L'adresse email"
+    errors:
+      models:
+        activity:
+          attributes:
+            name:
+              blank: "est obligatoire"
+              too_short: "doit contenir au moins %{count} caractères"
+            material:
+              blank : "est obligatoire"
+              too_short: "doit contenir au moins %{count} caractères"
+            maxSubscriptions:
+              not_a_number : "doit être un nombre"
+              greater_than : "doit être supérieur à %{count}"
+        place:
+          attributes:
+            alias:
+              blank: "est obligatoire"
+              too_short: "doit contenir au moins %{count} caractères"
+            street:
+              blank: "est obligatoire"
+              too_short: "doit contenir au moins %{count} caractères"
+            city:
+              blank: "est obligatoire"
+              too_short: "doit contenir au moins %{count} caractères"
+            postalCode:
+              not_a_number : "doit être un nombre"
+              greater_than : "doit être supérieur à %{count}"
+              too_short: "doit contenir au moins %{count} caractères"
+        level:
+          attributes:
+            name:
+              blank: "est obligatoire"
+              too_short: "doit contenir au moins %{count} caractères"
+        coach:
+          attributes:
+            lastName:
+              blank: "est obligatoire"
+              too_short: "doit contenir au moins %{count} caractères"
+            firstName:
+              blank: "est obligatoire"
+              too_short: "doit contenir au moins %{count} caractères"
+            telefonNumber:
+              blank: "est obligatoire"
+              not_a_number : "doit être un nombre"
+              greater_than : "doit être supérieur à %{count}"
+              too_short: "doit contenir au moins %{count} caractères"
+              too_long: "doit contenir au maximum %{count} caractères"
+            email:
+              blank: "est obligatoire"
+              invalid: "n'est pas valide"
+        sports_training:
+          attributes:
+            code:
+              blank: "est obligatoire"
+              too_short: "doit contenir au moins %{count} caractères"
+            morningNursery:
+              blank: "est obligatoire"
+              too_short: "doit contenir au moins %{count} caractères"
+            afternoonNursery:
+              blank: "est obligatoire"
+              too_short: "doit contenir au moins %{count} caractères"
+            fullDayPrice:
+              not_a_number : "doit être un nombre"
+              greater_than : "doit être supérieur à %{count}"
+            halfDayPrice:
+              not_a_number : "doit être un nombre"
+              greater_than : "doit être supérieur à %{count}"
+            startDate:
+              blank: "est obligatoire"
+              invalid: "n'est pas valide (format jj-mm-aaaa)"
+            endDate:
+              blank: "est obligatoire"
+              invalid: "n'est pas valide (format jj-mm-aaaa)"
+            startTime:
+              blank: "est obligatoire"
+              invalid: "n'est pas valide (format hh:mm)"
+            endTime:
+              blank: "est obligatoire"
+              invalid: "n'est pas valide (format hh:mm)"
+            morningActivities:
+              blank: "sont obligatoires"
+            afternoonActivities:
+              blank: "sont obligatoires"
+        swim_lesson:
+          attributes:
+            code:
+              blank: "est obligatoire"
+              too_short: "doit contenir au moins %{count} caractères"
+            category:
+              blank: "est obligatoire"
+              too_short: "doit contenir au moins %{count} caractères"
+            startTime:
+              blank: "est obligatoire"
+              invalid: "n'est pas valide (format hh:mm)"
+            endTime:
+              blank: "est obligatoire"
+              invalid: "n'est pas valide (format hh:mm)"
+            maxSubscriptions:
+              not_a_number : "doit être un nombre"
+              greater_than : "doit être supérieur à %{count}"
+        sport_module:
+          attributes:
+            code:
+              blank: "est obligatoire"
+              too_short: "doit contenir au moins %{count} caractères"
+            meetingPlace:
+              blank: "est obligatoire"
+              too_short: "doit contenir au moins %{count} caractères"
+            startTime:
+              blank: "est obligatoire"
+              invalid: "n'est pas valide (format hh:mm)"
+            endTime:
+              blank: "est obligatoire"
+              invalid: "n'est pas valide (format hh:mm)"
+            maxSubscriptions:
+              not_a_number : "doit être un nombre"
+              greater_than : "doit être supérieur à %{count}"
+        sports_day:
+          attributes:
+            code:
+              blank: "est obligatoire"
+              too_short: "doit contenir au moins %{count} caractères"
+            morningPlace:
+              blank: "est obligatoire"
+              too_short: "doit contenir au moins %{count} caractères"
+            afternoonPlace:
+              blank: "est obligatoire"
+              too_short: "doit contenir au moins %{count} caractères"
+            startTime:
+              blank: "est obligatoire"
+              invalid: "n'est pas valide (format hh:mm)"
+            endTime:
+              blank: "est obligatoire"
+              invalid: "n'est pas valide (format hh:mm)"
+            price:
+              not_a_number : "doit être un nombre"
+              greater_than : "doit être supérieur à %{count}"
+            date:
+              blank: "est obligatoire"
+              invalid: "n'est pas valide (format jj-mm-aaaa)"
+            paymentDate:
+              blank: "est obligatoire"
+              invalid: "n'est pas valide (format jj-mm-aaaa)"
+        subscription:
+          attributes:
+            lastName:
+              blank: "est obligatoire"
+              too_short: "doit contenir au moins %{count} caractères"
+            firstName:
+              blank: "est obligatoire"
+              too_short: "doit contenir au moins %{count} caractères"
+            telefonNumber:
+              blank: "est obligatoire"
+              not_a_number : "doit être un nombre"
+              greater_than : "doit être supérieur à %{count}"
+              too_short: "doit contenir au moins %{count} caractères"
+              too_long: "doit contenir au maximum %{count} caractères"
+            email:
+              blank: "est obligatoire"
+              invalid: "n'est pas valide"
+            birthDate:
+              blank: "est obligatoire"
+              invalid: "n'est pas valide (format jj-mm-aaaa)"
+            street:
+              blank: "est obligatoire"
+              too_short: "doit contenir au moins %{count} caractères"
+            city:
+              blank: "est obligatoire"
+              too_short: "doit contenir au moins %{count} caractères"
+            postalCode:
+              not_a_number : "doit être un nombre"
+              greater_than : "doit être supérieur à %{count}"
+              too_short: "doit contenir au moins %{count} caractères"
+
+  date:
+    abbr_day_names:
+    - dim
+    - lun
+    - mar
+    - mer
+    - jeu
+    - ven
+    - sam
+    abbr_month_names:
+    -
+    - jan.
+    - fév.
+    - mar.
+    - avr.
+    - mai
+    - juin
+    - juil.
+    - août
+    - sept.
+    - oct.
+    - nov.
+    - déc.
+    day_names:
+    - Dimanche
+    - Lundi
+    - Mardi
+    - Mercredi
+    - Jeudi
+    - Vendredi
+    - Samedi
+    formats:
+      default: "%d/%m/%Y"
+      short: "%e %b"
+      long: "%e %B %Y"
+    month_names:
+    -
+    - janvier
+    - février
+    - mars
+    - avril
+    - mai
+    - juin
+    - juillet
+    - août
+    - septembre
+    - octobre
+    - novembre
+    - décembre
+    order:
+    - :day
+    - :month
+    - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: environ une heure
+        other: environ %{count} heures
+      about_x_months:
+        one: environ un mois
+        other: environ %{count} mois
+      about_x_years:
+        one: environ un an
+        other: environ %{count} ans
+      almost_x_years:
+        one: presqu'un an
+        other: presque %{count} ans
+      half_a_minute: une demi-minute
+      less_than_x_minutes:
+        zero: moins d'une minute
+        one: moins d'une minute
+        other: moins de %{count} minutes
+      less_than_x_seconds:
+        zero: moins d'une seconde
+        one: moins d'une seconde
+        other: moins de %{count} secondes
+      over_x_years:
+        one: plus d'un an
+        other: plus de %{count} ans
+      x_days:
+        one: 1 jour
+        other: "%{count} jours"
+      x_minutes:
+        one: 1 minute
+        other: "%{count} minutes"
+      x_months:
+        one: 1 mois
+        other: "%{count} mois"
+      x_seconds:
+        one: 1 seconde
+        other: "%{count} secondes"
+    prompts:
+      day: Jour
+      hour: Heure
+      minute: Minute
+      month: Mois
+      second: Seconde
+      year: Année
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      accepted: doit être accepté(e)
+      blank: doit être rempli(e)
+      present: doit être vide
+      confirmation: ne concorde pas avec %{attribute}
+      empty: doit être rempli(e)
+      equal_to: doit être égal à %{count}
+      even: doit être pair
+      exclusion: n'est pas disponible
+      greater_than: doit être supérieur à %{count}
+      greater_than_or_equal_to: doit être supérieur ou égal à %{count}
+      inclusion: n'est pas inclus(e) dans la liste
+      invalid: n'est pas valide
+      less_than: doit être inférieur à %{count}
+      less_than_or_equal_to: doit être inférieur ou égal à %{count}
+      not_a_number: n'est pas un nombre
+      not_an_integer: doit être un nombre entier
+      odd: doit être impair
+      record_invalid: 'La validation a échoué : %{errors}'
+      restrict_dependent_destroy:
+        one: 'Suppression impossible: un autre enregistrement est lié'
+        many: 'Suppression impossible: d''autres enregistrements sont liés'
+      taken: est déjà utilisé
+      too_long:
+        one: est trop long (pas plus d'un caractère)
+        other: est trop long (pas plus de %{count} caractères)
+      too_short:
+        one: est trop court (au moins un caractère)
+        other: est trop court (au moins %{count} caractères)
+      wrong_length:
+        one: ne fait pas la bonne longueur (doit comporter un seul caractère)
+        other: ne fait pas la bonne longueur (doit comporter %{count} caractères)
+      other_than: doit être différent de %{count}
+    template:
+      body: 'Veuillez vérifier les champs suivants : '
+      header:
+        one: 'Impossible d''enregistrer ce(tte) %{model} : 1 erreur'
+        other: 'Impossible d''enregistrer ce(tte) %{model} : %{count} erreurs'
+  helpers:
+    select:
+      prompt: Veuillez sélectionner
+    submit:
+      create: Créer un(e) %{model}
+      submit: Enregistrer ce(tte) %{model}
+      update: Modifier ce(tte) %{model}
+  number:
+    currency:
+      format:
+        delimiter: " "
+        format: "%n %u"
+        precision: 2
+        separator: ","
+        significant: false
+        strip_insignificant_zeros: false
+        unit: "€"
+    format:
+      delimiter: " "
+      precision: 3
+      separator: ","
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: "%n %u"
+        units:
+          billion: milliard
+          million: million
+          quadrillion: million de milliards
+          thousand: millier
+          trillion: billion
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 2
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: octet
+            other: octets
+          gb: Go
+          kb: ko
+          mb: Mo
+          tb: To
+    percentage:
+      format:
+        delimiter: ''
+        format: "%n%"
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: " et "
+      two_words_connector: " et "
+      words_connector: ", "

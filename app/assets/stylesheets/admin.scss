@@ -1,0 +1,96 @@
+// Place all the styles related to the Activities controller here.
+// They will automatically be included in application.scss.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'bootstrap-datepicker';
+@import 'bootstrap-select';
+//= require_tree './admin'
+
+body
+{
+  background-color:#000000;
+  margin: 0; padding: 0;
+}
+
+.container {
+  margin:auto;
+  color:white;
+  padding-top:10px;
+}
+
+a:visited
+{
+  color:white;
+  text-decoration: none;
+}
+
+a:hover
+{
+  background: none;
+  text-decoration: none;
+}
+
+a span.glyphicon-plus
+{
+  font-size: 3em;
+  color:green;
+  font-weight:bold;
+}
+
+a:not(.btn) span.glyphicon-export
+{
+  font-size: 3em;
+  color:lightblue;
+  font-weight:bold;
+}
+
+.content
+{
+  margin-left:50px;
+  padding-top:10px;
+  background-repeat: no-repeat;
+  color: white;
+}
+
+.actions
+{
+  margin-top: 50px;
+}
+
+.field_with_errors
+{
+  display: block;
+  color:#a94442;
+}
+
+.field_with_errors .form-control
+{
+  border: 2px solid #a94442;
+}
+
+.panel .table .waiting_payment
+{
+  color:grey;
+}
+
+.panel .table
+{
+  color:black;
+}
+
+.badge
+{
+  font-size:11pt;
+  padding: 3px 10px 4px;
+}
+
+.form-horizontal .has-feedback .form-control-feedback {
+  color:black;
+}
+
+.input-group[class*="col-"] {
+  padding-right: 15px;
+  padding-left: 15px;
+}

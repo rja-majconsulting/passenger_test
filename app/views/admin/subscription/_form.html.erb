@@ -1,0 +1,50 @@
+<div class="field form-group">
+  <%= form.label t('subscription_form_lastName'), :class => 'col-sm-3 control-label' %>
+  <div class="col-sm-6">
+    <%= form.text_field :lastName, :class => 'form-control' %>
+  </div>
+</div>
+<div class="field form-group">
+  <%= form.label t('subscription_form_firstName'), :class => 'col-sm-3 control-label' %>
+  <div class="col-sm-6">
+    <%= form.text_field :firstName, :class => 'form-control' %>
+  </div>
+</div>
+<div class="field form-group">
+  <%= form.label t('subscription_form_birthDate'), :class => 'col-sm-3 control-label' %>
+  <div class="col-sm-6 input-group">
+    <%= form.text_field :birthDate, value: subscription.birthDate.blank? ? subscription.birthDate_before_type_cast : l(subscription.birthDate), :class => "form-control birthDate" %>
+    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+  </div>
+</div>
+<div class="field form-group">
+  <%= form.label t('subscription_form_street'), :class => 'col-sm-3 control-label' %>
+  <div class="col-sm-6">
+    <%= form.text_field :street, :class => 'form-control' %>
+  </div>
+</div>
+<div class="field form-group">
+  <%= form.label t('subscription_form_city'), :class => 'col-sm-3 control-label' %>
+  <div class="col-sm-6">
+    <%= form.text_field :city, :class => 'form-control' %>
+  </div>
+</div>
+<div class="field form-group">
+  <%= form.label t('subscription_form_postal_code'), :class => 'col-sm-3 control-label' %>
+  <div class="col-sm-6">
+    <%= form.number_field :postalCode, :class => 'form-control' %>
+  </div>
+</div>
+<div class="field form-group">
+  <%= form.label t('subscription_form_telefon_number'), :class => 'col-sm-3 control-label' %>
+  <div class="col-sm-6">
+    <%= form.text_field :telefonNumber, :class => 'form-control' %>
+  </div>
+</div>
+<div class="field form-group">
+  <%= form.label t('subscription_form_email'), :class => 'col-sm-3 control-label' %>
+  <div class="col-sm-6">
+    <%= form.text_field :email, :class => 'form-control' %>
+  </div>
+</div>
+

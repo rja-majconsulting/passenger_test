@@ -1,0 +1,46 @@
+<div class="content  overflow-hidden height-hundred-480" style="background-color:#3c5daa">
+  <h3>Envie que votre enfant apprenne à nager ?</h3>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <h3>Nos 3 formules</h3>
+
+        <ul>
+          <li>> Cours par mini groupe de 2 à 5 enfants</li>
+          <li>> Cours en individuel</li>
+          <li>> Suivi pédagogique avec bulletin de nage dès 3 ans</li>
+
+        </ul>  <br>
+
+        <h3><%= link_to "Plus d'infos ? Cliquez ICI", '/Natation_enfant.pdf', :target => '_blank' %></h3>
+
+        <ul>
+          <li>
+            <%= link_to public_registration_path, :target => '_parent'  do %>
+                <input type="button" value="<%= t('menu_registration')%>" class="button_inscription"/>
+            <% end %>
+          </li>
+        </ul>
+
+      </div>
+
+
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <h3>Nos piscines disponibles</h3>
+        <ul>
+          <li>> Piscine de Gozée (Aqua et Thérapie)</li>
+          <li>> Piscine de l’Hélios Charleroi</li>
+          <li>> Piscine de Biesme</li>
+          <li>> Piscine du collège de Bonne Espérance de Estinnes</li>
+          <li>> Piscine de l’Athénée Delvaux de Ottignies LLN</li>
+          <li>> Piscine de Jambes </li>
+          <li>> A votre domicile, dans votre piscine privée</li>
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+
+
+</div>

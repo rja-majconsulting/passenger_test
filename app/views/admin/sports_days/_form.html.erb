@@ -1,0 +1,83 @@
+<%= form_for([:admin, @sports_day], :html => {:class => "form-horizontal"})  do |f| %>
+  <% if @sports_day.errors.any? %>
+      <div class="alert alert-danger" role="alert">
+        <h3><%= t('validation_error_message_1') + pluralize(@sports_day.errors.count, t('validation_error_message_2')) + t('validation_error_message_3') %></h3>
+
+        <ul>
+          <% @sports_day.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= f.label t('sport_day_form_code'), :class => "col-sm-3 control-label" %>
+    <div class="col-sm-6">
+      <%= f.text_field :code, :class => "form-control" %>
+    </div>
+  </div>
+
+
+  <div class="field form-group">
+    <%= f.label t('sport_day_form_place'), :class => "col-sm-3 control-label" %>
+    <div class="col-sm-6">
+      <%= f.select :place_id, options_for_select(@places.map{|s|[s.alias, s.id]}, @sports_day.place_id), {}, {:class => "form-control select", 'data-style' => "btn-primary"} %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label t('sport_day_form_date'), :class => "col-sm-3 control-label" %>
+    <div class="col-sm-6 input-group">
+      <%= f.text_field :date, value: @sports_day.date.blank? ? @sports_day.date_before_type_cast : l(@sports_day.date), :class => "form-control date" %>
+      <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+    </div>
+  </div>
+  <div class="field form-group">
+    <%= f.label t('sport_day_form_price'), :class => "col-sm-3 control-label" %>
+    <div class="col-sm-6">
+      <%= f.text_field :price, :class => "form-control" %>
+    </div>
+  </div>
+  <div class="field form-group">
+    <%= f.label t('sport_day_form_start_time'), :class => "col-sm-3 control-label" %>
+    <div class="col-sm-6 input-group">
+      <%= f.text_field :startTime, value: @sports_day.startTime.blank? ? @sports_day.startTime_before_type_cast : l(@sports_day.startTime),  :class => "form-control" %>
+      <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+    </div>
+  </div>
+  <div class="field form-group">
+    <%= f.label t('sport_day_form_end_time'), :class => "col-sm-3 control-label" %>
+    <div class="col-sm-6 input-group">
+      <%= f.text_field :endTime, value: @sports_day.endTime.blank? ? @sports_day.endTime_before_type_cast : l(@sports_day.endTime), :class => "form-control" %>
+      <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+    </div>
+  </div>
+  <div class="field form-group">
+    <%= f.label t('sport_day_form_meeting_morning'), :class => "col-sm-3 control-label" %>
+    <div class="col-sm-6">
+      <%= f.text_field :morningPlace, :class => "form-control" %>
+    </div>
+  </div>
+  <div class="field form-group">
+    <%= f.label t('sport_day_form_meeting_afternoon'), :class => "col-sm-3 control-label" %>
+    <div class="col-sm-6">
+      <%= f.text_field :afternoonPlace, :class => "form-control" %>
+    </div>
+  </div>
+    <div class="field form-group">
+      <%= f.label t('sport_day_form_payment_date'), :class => "col-sm-3 control-label" %>
+      <div class="col-sm-6 input-group">
+        <%= f.text_field :paymentDate, value: @sports_day.paymentDate.blank? ? @sports_day.paymentDate_before_type_cast : l(@sports_day.paymentDate), :class => "form-control date" %>
+        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+      </div>
+    </div>
+  <div class="actions form-group" >
+    <%= link_to admin_sports_days_path, :class => "btn btn-primary col-sm-offset-3" do %>
+        <i class="glyphicon glyphicon-chevron-left"></i> <%= t('button_back') %>
+    <% end %>
+    <%= button_tag(type: 'submit', class: "btn btn-primary col-sm-offset-4") do %>
+        <%= (controller.action_name=="new" or controller.action_name=="create") ? t('button_add') :  t('button_edit') %> <i class="glyphicon glyphicon-ok"></i>
+    <% end %>
+  </div>
+<% end %>

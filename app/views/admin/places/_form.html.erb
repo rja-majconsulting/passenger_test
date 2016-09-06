@@ -1,0 +1,46 @@
+<%= form_for([:admin, @place], validate: true, :html => {:class => 'form-horizontal'})  do |f| %>
+  <% if @place.errors.any? %>
+      <div class="alert alert-danger" role="alert">
+        <h3><%= t('validation_error_message_1') + pluralize(@place.errors.count, t('validation_error_message_2')) + t('validation_error_message_3') %></h3>
+
+        <ul>
+          <% @place.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= f.label t('place_form_alias'), :class => 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :alias, :class => 'form-control' %>
+    </div>
+  </div>
+  <div class="field form-group">
+    <%= f.label t('place_form_street'), :class => 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :street, :class => 'form-control' %>
+    </div>
+  </div>
+  <div class="field form-group">
+    <%= f.label t('place_form_city'), :class => 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :city, :class => 'form-control' %>
+    </div>
+  </div>
+  <div class="field form-group">
+    <%= f.label t('place_form_postal_code'), :class => 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.number_field :postalCode, :class => 'form-control' %>
+    </div>
+  </div>
+    <div class="actions form-group" >
+      <%= link_to admin_places_path, :class => 'btn btn-primary col-sm-offset-3' do %>
+          <i class="glyphicon glyphicon-chevron-left"></i> <%= t('button_back') %>
+      <% end %>
+      <%= button_tag(type: 'submit', class: 'btn btn-primary col-sm-offset-4') do %>
+          <%= (controller.action_name=='new' or controller.action_name=='create')  ? t('button_add') :  t('button_edit') %> <i class="glyphicon glyphicon-ok"></i>
+      <% end %>
+    </div>
+<% end %>
